@@ -1,5 +1,5 @@
 // for programming language icons
-import devicons from './devicons.js';
+import { devicons } from './devicons.js';
 
 const username = 'ASISaga';
 const maxPages = 3;
