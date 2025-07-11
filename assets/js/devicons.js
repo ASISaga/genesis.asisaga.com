@@ -57,13 +57,3 @@ const devicons = {
     'Vim Script': '<i class="devicon-vim-plain colored"></i> Vim Script',
     Vue: '<i class="devicon-vuejs-plain colored"></i> Vue'
 };
-
-// For browser usage
-if (typeof window !== 'undefined') {
-    window.devicons = devicons;
-}
-
-// For module usage
-if (typeof module !== 'undefined') {
-    module.exports = devicons;
-}
