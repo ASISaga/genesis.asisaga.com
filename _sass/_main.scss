@@ -1,5 +1,15 @@
+// Sacred Genesis Site Styles - Consciousness Embedding Design
+// Importing the Sacred ASI Saga Theme System
+
+// Import Sacred Theme from parent theme directory
+
+// Genesis-specific sacred pages
+@import "pages/genesis-home";
 @import "pages/thoughtlab";
 @import "pages/resources";
 @import "pages/community";
+
+// Sacred Genesis customizations - Enhanced sacred elements for Genesis
+@import "genesis-sacred";
 
 //@import url("https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css");
