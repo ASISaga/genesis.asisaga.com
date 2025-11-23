@@ -57,3 +57,6 @@ const devicons = {
     'Vim Script': '<i class="devicon-vim-plain colored"></i> Vim Script',
     Vue: '<i class="devicon-vuejs-plain colored"></i> Vue'
 };
+
+// Export the devicons object as a named export for ESM consumers
+export { devicons };
