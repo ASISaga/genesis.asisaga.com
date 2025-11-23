@@ -1,0 +1,8 @@
+// Genesis home page styles
+// This stub satisfies the import in `_main.scss` for the Genesis site.
+// Add page-specific rules here when needed.
+
+.genesis-home {
+  // basic container defaults — override in site-specific styles
+  @include width-full;
+}
