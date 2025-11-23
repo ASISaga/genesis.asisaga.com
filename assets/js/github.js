@@ -20,13 +20,16 @@ const getProfile = async () => {
         // }
     );
     const profile = await res.json();
-    displayProfile(profile);
+    // Only attempt to display profile if the target container exists
+    const userInfoEl = document.querySelector('.user-info');
+    if (userInfoEl) displayProfile(profile);
 };
 getProfile();
 
 // display information from github profile
 const displayProfile = (profile) => {
     const userInfo = document.querySelector('.user-info');
+    if (!userInfo) return; // container missing on this page, bail out
     userInfo.innerHTML = `
         <figure>
             <img alt="user avatar" src=${profile.avatar_url} />
@@ -74,7 +77,9 @@ getRepos();
 // display list of all user's public repos
 const displayRepos = (repos) => {
     const userHome = `https://github.com/${username}`;
-    filterInput.classList.remove('hide');
+    // If there is no repo list or filter input on this page, skip rendering
+    if (!repoList) return;
+    if (filterInput) filterInput.classList.remove('hide');
     for (const repo of repos) {
         if (repo.fork && hideForks) {
             continue;
@@ -122,17 +127,19 @@ const displayRepos = (repos) => {
 };
 
 // dynamic search
-filterInput.addEventListener('input', (e) => {
-    const search = e.target.value;
-    const repos = document.querySelectorAll('.repo');
-    const searchLowerText = search.toLowerCase();
+if (filterInput) {
+    filterInput.addEventListener('input', (e) => {
+        const search = e.target.value;
+        const repos = document.querySelectorAll('.repo');
+        const searchLowerText = search.toLowerCase();
 
-    for (const repo of repos) {
-        const lowerText = repo.innerText.toLowerCase();
-        if (lowerText.includes(searchLowerText)) {
-            repo.classList.remove('hide');
-        } else {
-            repo.classList.add('hide');
+        for (const repo of repos) {
+            const lowerText = repo.innerText.toLowerCase();
+            if (lowerText.includes(searchLowerText)) {
+                repo.classList.remove('hide');
+            } else {
+                repo.classList.add('hide');
+            }
         }
-    }
-});
+    });
+}
