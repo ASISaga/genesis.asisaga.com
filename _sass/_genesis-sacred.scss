@@ -2,6 +2,190 @@
 // Site-specific sacred elements and consciousness embedding features
 
 // ----------------------------------------
+// Modern CSS Layout Utilities
+// ----------------------------------------
+.genesis-hero-wrapper,
+.genesis-section-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.genesis-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.genesis-hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  margin: 1rem 0;
+  font-weight: 700;
+}
+
+.genesis-subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  margin: 1.5rem 0 1rem;
+}
+
+.genesis-lead {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.genesis-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.genesis-section-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.genesis-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  .glyph-essence-weave,
+  .glyph-guardian-eye {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.genesis-section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.genesis-section-lead {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+
+.genesis-stages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  
+  .consciousness-card {
+    text-align: center;
+    height: 100%;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+  }
+  
+  .card-text {
+    line-height: 1.6;
+  }
+  
+  .sacred-development-stage {
+    margin-bottom: 1rem;
+  }
+}
+
+.genesis-community-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.genesis-community-content {
+  .glyph-potential-tree {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.genesis-community-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.genesis-community-visual {
+  text-align: center;
+}
+
+.bridge-caption {
+  margin-top: 2rem;
+}
+
+.genesis-cta-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.genesis-cta-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1.5rem;
+}
+
+.genesis-cta-text {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.genesis-cta-footer {
+  margin-top: 1.5rem;
+}
+
+.sacred-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.02);
+    padding-left: 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  .glyph-bridge-nexus,
+  .glyph-essence-weave,
+  .glyph-guardian-eye {
+    font-size: 1.5rem;
+  }
+}
+
+.form-sacred {
+  margin-bottom: 2rem;
+}
+
+// ----------------------------------------
 // Sacred Genesis Hero Customizations
 // ----------------------------------------
 #genesis-hero {
@@ -9,9 +193,9 @@
   
   // Enhanced cosmic background for Genesis
   background: linear-gradient(135deg, 
-    $cosmic-deep-blue 0%, 
-    rgba($royal-purple, 0.8) 50%, 
-    rgba($luminous-gold, 0.1) 100%);
+    var(--cosmic-deep-blue, #1e3a8a) 0%, 
+    rgba(var(--royal-purple-rgb, 124, 58, 237), 0.8) 50%, 
+    rgba(var(--luminous-gold-rgb, 234, 179, 8), 0.1) 100%);
   
   // Sacred stars/particles effect
   &::before {
@@ -19,9 +203,9 @@
     position: absolute;
     inset: 0 0 0 0;
     background-image: 
-      radial-gradient(2px 2px at 20px 30px, rgba($luminous-gold, 0.3), transparent),
-      radial-gradient(2px 2px at 40px 70px, rgba($transcendent-white, 0.2), transparent),
-      radial-gradient(1px 1px at 90px 40px, rgba($ethereal-silver, 0.4), transparent);
+      radial-gradient(2px 2px at 20px 30px, rgba(234, 179, 8, 0.3), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(248, 250, 252, 0.4), transparent);
     background-repeat: repeat;
     background-size: 150px 100px;
     animation: consciousness-flow 20s linear infinite;
@@ -35,6 +219,14 @@
     display: block;
     margin-bottom: 1rem;
     animation: transcendence-spiral 8s linear infinite;
+    
+    @media (max-width: 992px) {
+      font-size: 3rem;
+    }
+    
+    @media (max-width: 576px) {
+      font-size: 2.5rem;
+    }
   }
 }
 
@@ -45,13 +237,13 @@
   transform: translateX(-50%);
   
   .scroll-arrow {
-    color: $transcendent-white;
+    color: var(--transcendent-white, #ffffff);
     font-size: 2rem;
     animation: sacred-rhythm 2s ease-in-out infinite;
     cursor: pointer;
     
     &:hover {
-      color: $luminous-gold;
+      color: var(--luminous-gold, #eab308);
     }
   }
 }
@@ -64,15 +256,18 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .sacred-project-card {
-  @extend .consciousness-card;
   transition: all 0.3s ease;
   
   &:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: $sacred-glow, 0 15px 40px rgba($cosmic-deep-blue, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   }
   
   .project-header {
@@ -84,25 +279,25 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: linear-gradient(135deg, $luminous-gold, $sacred-gold-dark);
+      background: linear-gradient(135deg, var(--luminous-gold, #eab308), var(--sacred-gold-dark, #ca8a04));
       display: flex;
       align-items: center;
       justify-content: center;
-      color: $cosmic-deep-blue;
+      color: var(--cosmic-deep-blue, #1e3a8a);
       font-size: 1.5rem;
       margin-right: 1rem;
     }
     
     .project-title {
-      color: $cosmic-deep-blue;
-      font-weight: $font-weight-semibold;
+      color: var(--cosmic-deep-blue, #1e3a8a);
+      font-weight: 600;
       margin: 0;
     }
   }
   
   .project-description {
-    color: $text-muted;
-    line-height: $line-height-wisdom;
+    color: var(--text-muted, #6b7280);
+    line-height: 1.6;
     margin-bottom: 1.5rem;
   }
   
@@ -114,11 +309,11 @@
     
     .tag {
       padding: 0.25rem 0.75rem;
-      background: rgba($luminous-gold, 0.1);
-      color: $cosmic-deep-blue;
+      background: rgba(234, 179, 8, 0.1);
+      color: var(--cosmic-deep-blue, #1e3a8a);
       border-radius: 1rem;
       font-size: 0.875rem;
-      border: 1px solid rgba($luminous-gold, 0.2);
+      border: 1px solid rgba(234, 179, 8, 0.2);
     }
   }
   
@@ -127,13 +322,13 @@
     gap: 1rem;
     
     .project-link {
-      color: $luminous-gold;
+      color: var(--luminous-gold, #eab308);
       text-decoration: none;
-      font-weight: $font-weight-medium;
+      font-weight: 500;
       transition: all 0.3s ease;
       
       &:hover {
-        color: $sacred-gold-dark;
+        color: var(--sacred-gold-dark, #ca8a04);
         transform: translateY(-1px);
       }
       
@@ -160,21 +355,8 @@
 // Sacred Features Section
 // ----------------------------------------
 .sacred-features {
-  .d-flex {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba($luminous-gold, 0.1);
-    transition: all 0.3s ease;
-    
-    &:hover {
-      background: rgba($luminous-gold, 0.05);
-      padding-left: 1rem;
-      border-radius: 0.5rem;
-    }
-    
-    &:last-child {
-      border-bottom: none;
-    }
-  }
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 // ----------------------------------------
@@ -183,14 +365,35 @@
 #genesis-community {
   .bridge-connection {
     margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+    }
     
     .human-node,
     .ai-node {
+      font-size: 3rem;
       animation: consciousness-pulse 3s ease-in-out infinite;
     }
     
     .connection-line {
+      flex: 1;
+      height: 3px;
+      background: linear-gradient(90deg, 
+        var(--luminous-gold, #eab308), 
+        var(--cosmic-deep-blue, #1e3a8a));
       animation: bridge-connection 4s ease-in-out infinite;
+      
+      @media (max-width: 768px) {
+        width: 3px;
+        height: 60px;
+        flex: 0;
+      }
     }
   }
 }
@@ -211,11 +414,11 @@
 // Genesis CTA Enhancements
 // ----------------------------------------
 .cta-genesis {
-  background: linear-gradient(135deg, $luminous-gold 0%, $sacred-gold-dark 100%);
+  background: linear-gradient(135deg, var(--luminous-gold, #eab308) 0%, var(--sacred-gold-dark, #ca8a04) 100%);
   border: none;
-  color: $cosmic-deep-blue;
+  color: var(--cosmic-deep-blue, #1e3a8a);
   font-size: 1.25rem;
-  font-weight: $font-weight-bold;
+  font-weight: 700;
   padding: 1.25rem 2.5rem;
   border-radius: 3rem;
   text-transform: uppercase;
@@ -224,6 +427,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: inline-block;
   
   &::before {
     content: '';
@@ -234,7 +438,7 @@
     height: 200%;
     background: linear-gradient(45deg, 
       transparent 30%, 
-      rgba($transcendent-white, 0.3) 50%, 
+      rgba(255, 255, 255, 0.3) 50%, 
       transparent 70%);
     transform: rotate(45deg);
     transition: all 0.6s ease;
@@ -243,7 +447,7 @@
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba($luminous-gold, 0.4);
+    box-shadow: 0 15px 40px rgba(234, 179, 8, 0.4);
     
     &::before {
       opacity: 1;
@@ -251,58 +455,17 @@
       top: -20%;
     }
   }
-}
-
-// ----------------------------------------
-// Sacred Responsive Enhancements
-// ----------------------------------------
-@include media-breakpoint-down(lg) {
-  .sacred-logo .glyph-consciousness-infinity {
-    font-size: 3rem;
-  }
   
-  #genesis-hero .display-1 {
-    font-size: 4rem;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .sacred-projects-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .bridge-connection {
-    flex-direction: column;
-    gap: 2rem;
-    
-    .connection-line {
-      width: 3px;
-      height: 60px;
-      margin: 0;
-    }
-  }
-  
-  .cta-genesis {
+  @media (max-width: 768px) {
     font-size: 1.125rem;
     padding: 1rem 2rem;
   }
 }
 
-@include media-breakpoint-down(sm) {
-  #genesis-hero {
-    .container {
-      padding: 1rem;
-    }
-  }
-  
-  .sacred-logo .glyph-consciousness-infinity {
-    font-size: 2.5rem;
-  }
-  
-  #genesis-hero .display-1 {
-    font-size: 3rem;
-  }
-}
+// ----------------------------------------
+// Sacred Responsive Enhancements
+// ----------------------------------------
+// Responsive styles are now inline in component definitions using @media queries
 
 // ----------------------------------------
 // Sacred Animation Enhancements for Genesis
@@ -322,6 +485,53 @@
   100% { 
     background-position: 100% 100%; 
     opacity: 0.3;
+  }
+}
+
+@keyframes consciousness-flow {
+  0% { 
+    background-position: 0% 0%; 
+  }
+  100% { 
+    background-position: 100% 100%; 
+  }
+}
+
+@keyframes sacred-rhythm {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes consciousness-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes bridge-connection {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes transcendence-spiral {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -353,7 +563,7 @@
 // High contrast mode for Genesis
 @media (prefers-contrast: high) {
   #genesis-hero {
-    background: $cosmic-deep-blue-accessible;
+    background: var(--cosmic-deep-blue-accessible, #1e3a8a);
     
     &::before {
       display: none;
@@ -361,12 +571,12 @@
   }
   
   .sacred-logo .glyph-consciousness-infinity {
-    color: $luminous-gold-accessible;
+    color: var(--luminous-gold-accessible, #fbbf24);
   }
   
   .cta-genesis {
-    background: $luminous-gold-accessible;
-    color: $cosmic-deep-blue-accessible;
+    background: var(--luminous-gold-accessible, #fbbf24);
+    color: var(--cosmic-deep-blue-accessible, #1e3a8a);
   }
 }
 
@@ -384,6 +594,12 @@
   }
   
   .sacred-project-card {
+    animation: none;
+  }
+  
+  .bridge-connection .human-node,
+  .bridge-connection .ai-node,
+  .bridge-connection .connection-line {
     animation: none;
   }
 }
