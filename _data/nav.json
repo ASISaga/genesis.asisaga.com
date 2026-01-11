@@ -99,6 +99,22 @@
       "url": "https://genesis.asisaga.com/",
       "subcategories": [
         {
+          "title": "Genesis Algorithm",
+          "url": "https://genesis.asisaga.com/genesis/"
+        },
+        {
+          "title": "Community Actions",
+          "url": "https://genesis.asisaga.com/genesis/community/"
+        },
+        {
+          "title": "Living Score",
+          "url": "https://genesis.asisaga.com/genesis/scoring/"
+        },
+        {
+          "title": "Governance",
+          "url": "https://genesis.asisaga.com/genesis/governance/"
+        },
+        {
           "title": "Thought Lab",
           "url": "https://genesis.asisaga.com/thoughtlab/"
         },
@@ -111,24 +127,12 @@
           "url": "https://genesis.asisaga.com/language/"
         },
         {
-          "title": "Covenant",
-          "url": "https://genesis.asisaga.com/covenant/"
-        },
-        {
-          "title": "Pantheon",
-          "url": "https://genesis.asisaga.com/pantheon/"
-        },
-        {
-          "title": "Soul",
-          "url": "https://genesis.asisaga.com/soul/"
-        },
-        {
-          "title": "Resonance",
-          "url": "https://genesis.asisaga.com/resonance/"
+          "title": "Brain Visualization",
+          "url": "https://genesis.asisaga.com/home/"
         },
         {
           "title": "Documentation",
-          "url": "https://github.com/ASISaga/Genesis"
+          "url": "https://genesis.asisaga.com/genesis/docs/"
         }
       ]
     },

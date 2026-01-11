@@ -3,7 +3,15 @@
 
 // Import Sacred Theme from parent theme directory
 
-// Genesis-specific sacred pages
+// Genesis foundation styles (base styles from old genesis/ pages)
+@import "pages/foundation";
+@import "pages/sacred-design";
+@import "pages/mythic-components";
+@import "pages/futuristic-enhancements";
+
+// Genesis-specific page styles
+@import "pages/genesis-page";
+@import "pages/community-page";
 @import "pages/genesis-home";
 @import "pages/thoughtlab";
 @import "pages/resources";
