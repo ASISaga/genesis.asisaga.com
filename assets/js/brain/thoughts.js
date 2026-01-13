@@ -18,15 +18,27 @@ export class ThoughtManager {
   initializeSprites() {
     const thoughtSprites = [];
     const emoji = '💭';
-    const canvas = document.createElement('canvas');
-    canvas.width = 64;
-    canvas.height = 64;
+    const canvas = document.getElementById('thought-canvas');
+    if (!canvas) {
+      throw new Error('Element with id "thought-canvas" not found in DOM. Add <canvas id="thought-canvas"> to brain.html');
+    }
+    // Logical CSS size for the sprite texture
+    const logicalSize = 64;
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
+    // Ensure the canvas CSS size is the logical size so layout doesn't change
+    canvas.style.width = `${logicalSize}px`;
+    canvas.style.height = `${logicalSize}px`;
+    // Backing store scaled by devicePixelRatio for sharp results on HiDPI
+    canvas.width = logicalSize * dpr;
+    canvas.height = logicalSize * dpr;
     const ctx = canvas.getContext('2d');
+    // Scale drawing operations back to CSS pixels
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.font = '48px serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.clearRect(0, 0, 64, 64);
-    ctx.fillText(emoji, 32, 32);
+    ctx.clearRect(0, 0, logicalSize, logicalSize);
+    ctx.fillText(emoji, logicalSize / 2, logicalSize / 2);
     const texture = new THREE.CanvasTexture(canvas);
     for (let i = 0; i < this.thoughtCount; i++) {
       const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true });
