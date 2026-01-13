@@ -216,7 +216,7 @@ export class ThoughtManager {
           x = currentRadius * Math.cos(currentAngle);
           z = currentRadius * Math.sin(currentAngle);
           sprite.position.set(x, y, z);
-          if (Math.sqrt(x*x + y*y + z*z) <= this.coreRadius * 1.05) sprite.visible = false;
+          if (Math.sqrt(x * x + y * y + z * z) <= this.coreRadius * 1.05) sprite.visible = false;
           continue;
         } else {
           this.thoughtStates[index] = 0;
@@ -238,7 +238,7 @@ export class ThoughtManager {
           y = targetY * finalScale;
           z = targetZ * finalScale;
           sprite.position.set(x, y, z);
-          if (Math.sqrt(x*x + y*y + z*z) <= this.coreRadius * 1.05) sprite.visible = false;
+          if (Math.sqrt(x * x + y * y + z * z) <= this.coreRadius * 1.05) sprite.visible = false;
         }
         continue;
       }
@@ -251,7 +251,7 @@ export class ThoughtManager {
       const targetZ = this.thoughtTargets[index * 3 + 2];
       this.radialVector.set(targetX - currentX, targetY - currentY, targetZ - currentZ);
       const radialDistance = this.radialVector.length();
-      if (radialDistance <= this.thoughtStickDistance || Math.sqrt(currentX*currentX + currentY*currentY + currentZ*currentZ) <= this.coreRadius * 1.05) {
+      if (radialDistance <= this.thoughtStickDistance || Math.sqrt(currentX * currentX + currentY * currentY + currentZ * currentZ) <= this.coreRadius * 1.05) {
         sprite.position.set(targetX, targetY, targetZ);
         sprite.visible = false;
         this.thoughtStates[index] = 1;
@@ -269,14 +269,14 @@ export class ThoughtManager {
       const spiralIntensity = Math.max(0.4, distanceEase);
       const timeFactor = Math.sin(elapsedTime * 0.8 + index * 0.91) * 0.3 + 0.7;
       const spiralStep = inwardStep * this.thoughtSpiralFactor * spiralIntensity * timeFactor *
-                        (0.85 + this.thoughtVariance * (Math.sin(elapsedTime * 1.4 + index * 0.67) * 0.4 + 0.6));
+        (0.85 + this.thoughtVariance * (Math.sin(elapsedTime * 1.4 + index * 0.67) * 0.4 + 0.6));
       const perpVector = new THREE.Vector3().crossVectors(this.radialVector, this.tangentialVector);
       const perpStep = spiralStep * 0.3 * Math.sin(elapsedTime * 2.1 + index * 0.45);
       const nextX = currentX + this.radialVector.x * inwardStep + this.tangentialVector.x * spiralStep + perpVector.x * perpStep;
       const nextY = currentY + this.radialVector.y * inwardStep + this.tangentialVector.y * spiralStep + perpVector.y * perpStep;
       const nextZ = currentZ + this.radialVector.z * inwardStep + this.tangentialVector.z * spiralStep + perpVector.z * perpStep;
       sprite.position.set(nextX, nextY, nextZ);
-      if (Math.sqrt(nextX*nextX + nextY*nextY + nextZ*nextZ) <= this.coreRadius * 1.05) sprite.visible = false;
+      if (Math.sqrt(nextX * nextX + nextY * nextY + nextZ * nextZ) <= this.coreRadius * 1.05) sprite.visible = false;
     }
     // Render
     this.renderer.render(this.scene, this.camera);

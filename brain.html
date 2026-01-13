@@ -12,4 +12,10 @@ permalink: /brain/
   </div>
 </div>
 
+<link rel="stylesheet" href="{{ '/assets/css/brain.css' | relative_url }}">
 <script type="module" src="{{ '/assets/js/brain/main.js' | relative_url }}"></script>
+
+<!-- Container for brain SVG injected by brain scripts -->
+<div id="brain-container" aria-hidden="true">
+  <object id="brain-object" data="{{ '/assets/images/brain.svg' | relative_url }}" type="image/svg+xml"></object>
+</div>
