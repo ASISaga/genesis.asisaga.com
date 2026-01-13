@@ -5,7 +5,7 @@ import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
 
 export function setupBrain(scene, coreRadius) {
   // Use SVG brain in animation
-  const svgUrl = 'brain.svg';
+  const svgUrl = '/assets/images/brain.svg';
   const container = document.createElement('div');
   container.style.position = 'absolute';
   container.style.top = '50%';
