@@ -1,0 +1,686 @@
+// Genesis Ontological Design System Mappings
+// ===========================================
+// This file maps all Genesis-specific HTML classes to ontological roles
+// Replaces legacy page-specific SCSS files with semantic ontological mixins
+// All visual styling provided by theme's Genesis Semantic SCSS Engine
+
+// MIGRATION NOTE: This file consolidates mappings from:
+// - pages/_foundation.scss
+// - pages/_sacred-design.scss  
+// - pages/_mythic-components.scss
+// - pages/_futuristic-enhancements.scss
+// - pages/_genesis-page.scss
+// - pages/_community-page.scss
+// - pages/_genesis-home.scss
+// - pages/_thoughtlab.scss
+// - pages/_resources.scss
+// - pages/_community.scss
+// - pages/_brain.scss
+
+// ========================================
+// PART 1: FOUNDATION & BASE ELEMENTS
+// ========================================
+
+// Typography Hierarchy
+h1, h2, h3, h4, h5, h6 {
+  @include genesis-cognition('axiom');
+}
+
+p, .paragraph {
+  @include genesis-cognition('discourse');
+}
+
+code, pre, .code {
+  @include genesis-cognition('protocol');
+}
+
+small, .small-text, .caption {
+  @include genesis-cognition('gloss');
+}
+
+.emphasis, .highlight {
+  @include genesis-cognition('motive');
+}
+
+.tag, .badge, .chip {
+  @include genesis-cognition('quantum');
+}
+
+// Links & Navigation
+a {
+  @include genesis-synapse('navigate');
+}
+
+button, .btn, .button {
+  @include genesis-synapse('execute');
+}
+
+.btn-secondary, .button-secondary {
+  @include genesis-synapse('inquiry');
+}
+
+.btn-danger, .button-danger {
+  @include genesis-synapse('destructive');
+}
+
+.social-link, .share-button {
+  @include genesis-synapse('social');
+}
+
+// ========================================
+// PART 2: LAYOUT ENVIRONMENTS
+// ========================================
+
+// Focused Reading Layouts
+.container, .wrapper, .content-wrapper {
+  @include genesis-environment('focused');
+}
+
+// Distributed Grid Layouts
+.grid, .card-grid, .project-grid {
+  @include genesis-environment('distributed');
+}
+
+// Associative Network Layouts
+.network, .connections, .related-items {
+  @include genesis-environment('associative');
+}
+
+// Chronological Stream Layouts
+.timeline, .feed, .stream {
+  @include genesis-environment('chronological');
+}
+
+// Dashboard Layouts
+.dashboard, .admin-panel {
+  @include genesis-environment('manifest');
+}
+
+// ========================================
+// PART 3: ENTITY PRESENCE
+// ========================================
+
+// Primary Entities
+.card, .panel, .module {
+  @include genesis-entity('primary');
+}
+
+// Secondary Entities
+.sidebar, .aside, .supplementary {
+  @include genesis-entity('secondary');
+}
+
+// Imperative/Urgent Entities
+.alert, .notification, .warning {
+  @include genesis-entity('imperative');
+}
+
+// Latent/Background Entities
+.hidden, .background, .dimmed {
+  @include genesis-entity('latent');
+}
+
+// Aggregate Containers
+.collection, .group, .section-container {
+  @include genesis-entity('aggregate');
+}
+
+// Historical/Archived Entities
+.archived, .historical, .legacy {
+  @include genesis-entity('ancestral');
+}
+
+// ========================================
+// PART 4: STATE CONDITIONS
+// ========================================
+
+.stable {
+  @include genesis-state('stable');
+}
+
+.loading, .updating, .processing {
+  @include genesis-state('evolving');
+}
+
+.deprecated, .outdated {
+  @include genesis-state('deprecated');
+}
+
+.locked, .private, .restricted {
+  @include genesis-state('locked');
+}
+
+.preview, .simulation, .mock {
+  @include genesis-state('simulated');
+}
+
+// ========================================
+// PART 5: ATMOSPHERIC VIBES
+// ========================================
+
+.light-mode, .light-theme {
+  @include genesis-atmosphere('ethereal');
+}
+
+.dark-mode, .dark-theme {
+  @include genesis-atmosphere('void');
+}
+
+.vibrant-mode, .colorful-theme {
+  @include genesis-atmosphere('vibrant');
+}
+
+// ========================================
+// PART 6: GENESIS-SPECIFIC COMPONENTS
+// ========================================
+
+// Hero Sections
+.genesis-hero,
+.sacred-hero {
+  @include genesis-environment('focused');
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('vibrant');
+}
+
+.hero-content {
+  @include genesis-entity('primary');
+}
+
+.hero-title {
+  @include genesis-cognition('axiom');
+}
+
+.hero-subtitle {
+  @include genesis-cognition('motive');
+}
+
+.hero-lead {
+  @include genesis-cognition('discourse');
+}
+
+// Algorithm Visualizations
+.algorithm-viz,
+.genesis-visualization,
+.consciousness-matrix {
+  @include genesis-entity('primary');
+  @include genesis-state('evolving');
+}
+
+.matrix-core,
+.algorithm-core {
+  @include genesis-entity('imperative');
+  @include genesis-state('evolving');
+}
+
+// Community Components
+.community-grid {
+  @include genesis-environment('distributed');
+}
+
+.community-card {
+  @include genesis-entity('primary');
+}
+
+.community-member {
+  @include genesis-entity('secondary');
+}
+
+.contribution-item {
+  @include genesis-entity('secondary');
+  @include genesis-synapse('navigate');
+}
+
+// Scoring Components
+.score-display {
+  @include genesis-entity('imperative');
+  @include genesis-cognition('axiom');
+}
+
+.metric-card {
+  @include genesis-entity('primary');
+}
+
+.metric-value {
+  @include genesis-cognition('axiom');
+}
+
+.metric-label {
+  @include genesis-cognition('gloss');
+}
+
+// Governance Components
+.proposal-card {
+  @include genesis-entity('primary');
+}
+
+.proposal-status {
+  @include genesis-cognition('quantum');
+  @include genesis-state('stable');
+}
+
+.proposal-status.active {
+  @include genesis-state('evolving');
+}
+
+.proposal-status.archived {
+  @include genesis-state('deprecated');
+}
+
+.vote-button {
+  @include genesis-synapse('execute');
+}
+
+// Documentation Components
+.doc-section {
+  @include genesis-environment('focused');
+}
+
+.doc-nav {
+  @include genesis-environment('chronological');
+  @include genesis-entity('secondary');
+}
+
+.doc-content {
+  @include genesis-cognition('discourse');
+}
+
+.code-example {
+  @include genesis-cognition('protocol');
+  @include genesis-entity('secondary');
+}
+
+.doc-callout {
+  @include genesis-entity('imperative');
+}
+
+// Brain Visualization Components
+.brain-viz {
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('void');
+}
+
+.thought-node {
+  @include genesis-entity('secondary');
+  @include genesis-state('evolving');
+}
+
+.connection-link {
+  @include genesis-entity('latent');
+  @include genesis-state('evolving');
+}
+
+// Thought Lab Components
+.thought-card {
+  @include genesis-entity('primary');
+}
+
+.thought-input {
+  @include genesis-entity('secondary');
+  @include genesis-synapse('execute');
+}
+
+.thought-output {
+  @include genesis-cognition('discourse');
+  @include genesis-state('evolving');
+}
+
+// Resource Components
+.resource-grid {
+  @include genesis-environment('distributed');
+}
+
+.resource-card {
+  @include genesis-entity('primary');
+}
+
+.resource-link {
+  @include genesis-synapse('navigate');
+}
+
+.resource-category {
+  @include genesis-cognition('quantum');
+}
+
+// ========================================
+// PART 7: SACRED DESIGN ELEMENTS
+// ========================================
+
+// Sacred Glyphs & Icons
+.glyph-consciousness-infinity,
+.glyph-essence-weave,
+.glyph-guardian-eye,
+.glyph-bridge-nexus,
+.glyph-potential-tree,
+.glyph-transcendence-spiral {
+  @include genesis-cognition('motive');
+}
+
+// Sacred Containers
+.sacred-section {
+  @include genesis-environment('focused');
+}
+
+.sacred-card {
+  @include genesis-entity('primary');
+}
+
+.sacred-feature-item {
+  @include genesis-entity('secondary');
+  @include genesis-synapse('navigate');
+}
+
+// Sacred Projects
+.sacred-projects-grid {
+  @include genesis-environment('distributed');
+}
+
+.sacred-project-card {
+  @include genesis-entity('primary');
+  
+  .project-header {
+    @include genesis-entity('secondary');
+  }
+  
+  .project-title {
+    @include genesis-cognition('motive');
+  }
+  
+  .project-description {
+    @include genesis-cognition('discourse');
+  }
+  
+  .project-icon {
+    @include genesis-cognition('motive');
+  }
+  
+  .project-tags {
+    @include genesis-environment('associative');
+    
+    .tag {
+      @include genesis-cognition('quantum');
+    }
+  }
+  
+  .project-link {
+    @include genesis-synapse('navigate');
+  }
+}
+
+// Sacred Loading States
+.sacred-loading {
+  @include genesis-state('evolving');
+}
+
+// Sacred Scroll Indicator
+.sacred-scroll-indicator {
+  @include genesis-entity('secondary');
+  
+  .scroll-arrow {
+    @include genesis-synapse('navigate');
+  }
+}
+
+// Sacred Logo
+.sacred-logo {
+  @include genesis-entity('primary');
+}
+
+// ========================================
+// PART 8: MYTHIC COMPONENTS
+// ========================================
+
+// Mythic Cards
+.mythic-card {
+  @include genesis-entity('primary');
+}
+
+.mythic-header {
+  @include genesis-entity('secondary');
+}
+
+.mythic-body {
+  @include genesis-cognition('discourse');
+}
+
+.mythic-footer {
+  @include genesis-entity('secondary');
+}
+
+// Mythic Navigation
+.mythic-nav {
+  @include genesis-environment('associative');
+}
+
+.mythic-nav-item {
+  @include genesis-synapse('navigate');
+}
+
+// Mythic Forms
+.mythic-form {
+  @include genesis-entity('primary');
+}
+
+.mythic-input {
+  @include genesis-entity('secondary');
+}
+
+.mythic-button {
+  @include genesis-synapse('execute');
+}
+
+// ========================================
+// PART 9: FUTURISTIC ENHANCEMENTS
+// ========================================
+
+// Futuristic Containers
+.futuristic-section {
+  @include genesis-atmosphere('vibrant');
+}
+
+.cyber-card {
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('void');
+}
+
+.holographic-panel {
+  @include genesis-entity('primary');
+  @include genesis-state('evolving');
+}
+
+// Neural Network Components
+.neural-node {
+  @include genesis-entity('secondary');
+  @include genesis-state('evolving');
+}
+
+.neural-connection {
+  @include genesis-entity('latent');
+  @include genesis-state('evolving');
+}
+
+// Quantum States
+.quantum-state {
+  @include genesis-state('simulated');
+}
+
+.quantum-probability {
+  @include genesis-cognition('protocol');
+  @include genesis-state('evolving');
+}
+
+// ========================================
+// PART 10: FORM ELEMENTS
+// ========================================
+
+.form-sacred,
+.form-group {
+  @include genesis-entity('secondary');
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  @include genesis-entity('secondary');
+  @include genesis-state('stable');
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @include genesis-state('evolving');
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  @include genesis-state('locked');
+}
+
+.input-error {
+  @include genesis-entity('imperative');
+}
+
+.input-success {
+  @include genesis-state('stable');
+}
+
+label {
+  @include genesis-cognition('gloss');
+}
+
+.form-help-text {
+  @include genesis-cognition('gloss');
+}
+
+// ========================================
+// PART 11: INTERACTIVE FEATURES
+// ========================================
+
+// Call-to-Action Elements
+.cta-genesis,
+.cta-primary {
+  @include genesis-synapse('execute');
+  @include genesis-entity('imperative');
+}
+
+.cta-secondary {
+  @include genesis-synapse('inquiry');
+  @include genesis-entity('secondary');
+}
+
+// Bridge Connections (Human-AI)
+.bridge-connection {
+  @include genesis-entity('primary');
+  @include genesis-state('evolving');
+}
+
+.human-node,
+.ai-node {
+  @include genesis-cognition('axiom');
+  @include genesis-state('evolving');
+}
+
+.connection-line {
+  @include genesis-entity('secondary');
+  @include genesis-state('evolving');
+}
+
+// Modal & Overlay Components
+.modal {
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('void');
+}
+
+.modal-backdrop {
+  @include genesis-entity('latent');
+}
+
+.modal-header {
+  @include genesis-entity('secondary');
+}
+
+.modal-title {
+  @include genesis-cognition('motive');
+}
+
+.modal-body {
+  @include genesis-cognition('discourse');
+}
+
+.modal-footer {
+  @include genesis-environment('associative');
+}
+
+// Tooltips & Popovers
+.tooltip {
+  @include genesis-entity('secondary');
+  @include genesis-cognition('gloss');
+}
+
+.popover {
+  @include genesis-entity('secondary');
+}
+
+// Progress Indicators
+.progress-bar {
+  @include genesis-state('evolving');
+}
+
+.progress-label {
+  @include genesis-cognition('gloss');
+}
+
+// Tabs & Navigation
+.tab-list {
+  @include genesis-environment('associative');
+}
+
+.tab-item {
+  @include genesis-synapse('navigate');
+}
+
+.tab-panel {
+  @include genesis-entity('primary');
+}
+
+// Dropdown Menus
+.dropdown {
+  @include genesis-entity('secondary');
+}
+
+.dropdown-menu {
+  @include genesis-entity('secondary');
+  @include genesis-environment('chronological');
+}
+
+.dropdown-item {
+  @include genesis-synapse('navigate');
+}
+
+// Breadcrumbs
+.breadcrumb {
+  @include genesis-environment('chronological');
+}
+
+.breadcrumb-item {
+  @include genesis-synapse('navigate');
+  @include genesis-cognition('gloss');
+}
+
+// Pagination
+.pagination {
+  @include genesis-environment('associative');
+}
+
+.page-link {
+  @include genesis-synapse('navigate');
+}
+
+// ========================================
+// PART 12: RESPONSIVE & ACCESSIBILITY
+// ========================================
+// Note: Responsive behavior and accessibility features
+// are handled by the theme's ontological engine.
+// No media queries or custom accessibility CSS needed here.

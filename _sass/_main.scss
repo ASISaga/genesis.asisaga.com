@@ -1,24 +1,52 @@
-// Sacred Genesis Site Styles - Consciousness Embedding Design
-// Importing the Sacred ASI Saga Theme System
+// Genesis Ontological Design System
+// ====================================
+// Integration with ASI Saga Theme's Genesis Semantic SCSS Engine
+//
+// ARCHITECTURE:
+// 1. Theme provides visual engine via ontological mixins
+// 2. This subdomain maps HTML classes to semantic roles
+// 3. Zero raw CSS properties allowed in subdomain SCSS
+//
+// MIGRATION STATUS: Fully upgraded to ontological system
+// Legacy page files preserved for reference but not imported
 
-// Import Sacred Theme from parent theme directory
+// ========================================
+// STEP 1: Import Theme Ontological Engine
+// ========================================
+@import "ontology/index";
 
-// Genesis foundation styles (base styles from old genesis/ pages)
-@import "pages/foundation";
-@import "pages/sacred-design";
-@import "pages/mythic-components";
-@import "pages/futuristic-enhancements";
+// ========================================
+// STEP 2: Genesis Semantic Mappings
+// ========================================
+// Comprehensive ontological mappings for all Genesis HTML classes
+@import "genesis-ontology";
 
-// Genesis-specific page styles
-@import "pages/genesis-page";
-@import "pages/community-page";
-@import "pages/genesis-home";
-@import "pages/thoughtlab";
-@import "pages/resources";
-@import "pages/community";
-@import "pages/brain";
-
-// Sacred Genesis customizations - Enhanced sacred elements for Genesis
+// ========================================
+// STEP 3: Genesis-Specific Customizations
+// ========================================
+// Additional Genesis-specific semantic role mappings
 @import "genesis-sacred";
 
-//@import url("https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css");
+// ========================================
+// LEGACY FILES (Not Imported - For Reference Only)
+// ========================================
+// The following files contain legacy CSS with raw properties.
+// They are preserved for reference during the migration period
+// but are NOT imported. All functionality has been migrated
+// to ontological mappings in _genesis-ontology.scss
+//
+// Legacy files:
+// - pages/_foundation.scss (367 lines) → migrated
+// - pages/_sacred-design.scss (301 lines) → migrated
+// - pages/_mythic-components.scss (538 lines) → migrated
+// - pages/_futuristic-enhancements.scss (332 lines) → migrated
+// - pages/_genesis-page.scss (346 lines) → migrated
+// - pages/_community-page.scss (298 lines) → migrated
+// - pages/_genesis-home.scss (8 lines) → migrated
+// - pages/_thoughtlab.scss (108 lines) → migrated
+// - pages/_resources.scss (64 lines) → migrated
+// - pages/_community.scss (251 lines) → migrated
+// - pages/_brain.scss (33 lines) → migrated
+//
+// Total migrated: 2,646 lines of legacy CSS → ontological mixins
+// ========================================

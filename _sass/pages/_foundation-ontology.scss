@@ -1,0 +1,143 @@
+/* ASI Saga Foundation - Ontological Mappings */
+/* Genesis-specific semantic role mappings for foundation elements */
+/* All CSS variables and visual styling provided by theme ontological engine */
+
+// NOTE: This file previously contained CSS custom properties (:root variables).
+// Those are now provided by the theme's ontological engine in:
+// - _sass/ontology/_engines.scss (theme repository)
+//
+// This file now contains ONLY semantic mappings for Genesis-specific classes
+
+// Foundation Reset & Base - Handled by theme
+// Body background and global styles - Handled by theme ontological atmosphere
+
+// ----------------------------------------
+// Sacred Typography - Ontological Mappings
+// ----------------------------------------
+h1, h2, h3, h4, h5, h6 {
+  @include genesis-cognition('axiom');
+}
+
+p {
+  @include genesis-cognition('discourse');
+}
+
+code, pre {
+  @include genesis-cognition('protocol');
+}
+
+small, .small-text {
+  @include genesis-cognition('gloss');
+}
+
+// ----------------------------------------
+// Sacred Links - Ontological Synapses
+// ----------------------------------------
+a {
+  @include genesis-synapse('navigate');
+}
+
+button, .btn {
+  @include genesis-synapse('execute');
+}
+
+// ----------------------------------------
+// Sacred Containers - Ontological Environments
+// ----------------------------------------
+.container,
+.wrapper {
+  @include genesis-environment('focused');
+}
+
+.grid,
+.card-grid {
+  @include genesis-environment('distributed');
+}
+
+// ----------------------------------------
+// Sacred Cards - Ontological Entities
+// ----------------------------------------
+.card,
+.sacred-card {
+  @include genesis-entity('primary');
+}
+
+.card-secondary {
+  @include genesis-entity('secondary');
+}
+
+.alert,
+.notification {
+  @include genesis-entity('imperative');
+}
+
+// ----------------------------------------
+// Sacred Sections - Ontological Environments
+// ----------------------------------------
+section {
+  @include genesis-environment('chronological');
+}
+
+.hero,
+.sacred-hero {
+  @include genesis-environment('focused');
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('vibrant');
+}
+
+// ----------------------------------------
+// Sacred Forms - Ontological Entities
+// ----------------------------------------
+.form-group,
+.input-group {
+  @include genesis-entity('secondary');
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  @include genesis-entity('secondary');
+  @include genesis-state('stable');
+}
+
+input:focus,
+textarea:focus {
+  @include genesis-state('evolving');
+}
+
+// ----------------------------------------
+// Utility Classes - Ontological States
+// ----------------------------------------
+.loading {
+  @include genesis-state('evolving');
+}
+
+.disabled,
+.archived {
+  @include genesis-state('deprecated');
+}
+
+.locked,
+.private {
+  @include genesis-state('locked');
+}
+
+.preview,
+.simulation {
+  @include genesis-state('simulated');
+}
+
+// ----------------------------------------
+// Atmospheric Variations
+// ----------------------------------------
+.light-theme {
+  @include genesis-atmosphere('ethereal');
+}
+
+.dark-theme {
+  @include genesis-atmosphere('void');
+}
+
+.vibrant-theme {
+  @include genesis-atmosphere('vibrant');
+}

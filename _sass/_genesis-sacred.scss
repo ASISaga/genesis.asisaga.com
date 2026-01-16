@@ -1,605 +1,255 @@
-// Genesis Sacred Customizations - Sacred Design for Genesis Site
-// Site-specific sacred elements and consciousness embedding features
+// Genesis Sacred Customizations - Ontological Design Mappings
+// Maps Genesis-specific HTML classes to ontological roles
+// All visual styling provided by theme's ontological engine
 
 // ----------------------------------------
-// Modern CSS Layout Utilities
+// Hero & Page Structure (Environment)
 // ----------------------------------------
 .genesis-hero-wrapper,
 .genesis-section-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  @include genesis-environment('focused');
 }
 
 .genesis-hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 100vh;
-  padding: 2rem 0;
+  @include genesis-environment('focused');
+  @include genesis-entity('primary');
 }
 
+// ----------------------------------------
+// Typography Hierarchy (Cognition)
+// ----------------------------------------
 .genesis-hero-title {
-  font-size: clamp(3rem, 8vw, 6rem);
-  margin: 1rem 0;
-  font-weight: 700;
+  @include genesis-cognition('axiom');
 }
 
-.genesis-subtitle {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  margin: 1.5rem 0 1rem;
-}
-
-.genesis-lead {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 1.7;
-  max-width: 800px;
-  margin: 0 auto 2rem;
-}
-
-.genesis-cta-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.genesis-section-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.genesis-section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  
-  .glyph-essence-weave,
-  .glyph-guardian-eye {
-    display: block;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-}
-
+.genesis-subtitle,
 .genesis-section-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 1rem;
+  @include genesis-cognition('axiom');
 }
 
+.genesis-lead,
 .genesis-section-lead {
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  max-width: 700px;
-  margin: 0 auto;
-  opacity: 0.85;
-}
-
-.genesis-stages-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-  
-  .consciousness-card {
-    text-align: center;
-    height: 100%;
-  }
-  
-  .card-title {
-    font-size: 1.25rem;
-    margin: 1rem 0;
-  }
-  
-  .card-text {
-    line-height: 1.6;
-  }
-  
-  .sacred-development-stage {
-    margin-bottom: 1rem;
-  }
-}
-
-.genesis-community-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
-  align-items: center;
-  
-  @media (min-width: 992px) {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.genesis-community-content {
-  .glyph-potential-tree {
-    display: block;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-}
-
-.genesis-community-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.genesis-community-visual {
-  text-align: center;
-}
-
-.bridge-caption {
-  margin-top: 2rem;
-}
-
-.genesis-cta-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 4rem 0;
-}
-
-.genesis-cta-title {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  margin-bottom: 1.5rem;
+  @include genesis-cognition('discourse');
 }
 
 .genesis-cta-text {
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  @include genesis-cognition('discourse');
 }
 
 .genesis-cta-footer {
-  margin-top: 1.5rem;
+  @include genesis-cognition('gloss');
 }
 
+// ----------------------------------------
+// Layout Containers (Environment)
+// ----------------------------------------
+.genesis-section-content {
+  @include genesis-environment('focused');
+}
+
+.genesis-section-header {
+  @include genesis-entity('secondary');
+  
+  .glyph-essence-weave,
+  .glyph-guardian-eye {
+    @include genesis-cognition('motive');
+  }
+}
+
+.genesis-stages-grid {
+  @include genesis-environment('distributed');
+  
+  .consciousness-card {
+    @include genesis-entity('primary');
+  }
+  
+  .card-title {
+    @include genesis-cognition('motive');
+  }
+  
+  .card-text {
+    @include genesis-cognition('discourse');
+  }
+  
+  .sacred-development-stage {
+    @include genesis-cognition('protocol');
+  }
+}
+
+// ----------------------------------------
+// Community Layout (Associative)
+// ----------------------------------------
+.genesis-community-layout {
+  @include genesis-environment('associative');
+}
+
+.genesis-community-content {
+  @include genesis-entity('primary');
+  
+  .glyph-potential-tree {
+    @include genesis-cognition('motive');
+  }
+}
+
+.genesis-community-visual {
+  @include genesis-entity('secondary');
+}
+
+.bridge-caption {
+  @include genesis-cognition('gloss');
+}
+
+// ----------------------------------------
+// Interactive Elements (Synapse)
+// ----------------------------------------
+.genesis-cta-buttons,
+.genesis-community-buttons {
+  @include genesis-environment('associative');
+}
+
+.genesis-cta-wrapper {
+  @include genesis-environment('focused');
+  @include genesis-entity('primary');
+}
+
+.genesis-cta-title {
+  @include genesis-cognition('axiom');
+}
+
+// ----------------------------------------
+// Feature Lists (Chronological)
+// ----------------------------------------
 .sacred-feature-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: rgba(0, 0, 0, 0.02);
-    padding-left: 1rem;
-    border-radius: 0.5rem;
-  }
-  
-  &:last-child {
-    border-bottom: none;
-  }
+  @include genesis-entity('secondary');
+  @include genesis-synapse('navigate');
   
   .glyph-bridge-nexus,
   .glyph-essence-weave,
   .glyph-guardian-eye {
-    font-size: 1.5rem;
+    @include genesis-cognition('motive');
   }
 }
 
 .form-sacred {
-  margin-bottom: 2rem;
+  @include genesis-entity('primary');
 }
 
 // ----------------------------------------
-// Sacred Genesis Hero Customizations
+// Hero Section (Special Genesis Styling)
 // ----------------------------------------
 #genesis-hero {
-  position: relative;
-  
-  // Enhanced cosmic background for Genesis
-  background: linear-gradient(135deg, 
-    var(--cosmic-deep-blue, #1e3a8a) 0%, 
-    rgba(var(--royal-purple-rgb, 124, 58, 237), 0.8) 50%, 
-    rgba(var(--luminous-gold-rgb, 234, 179, 8), 0.1) 100%);
-  
-  // Sacred stars/particles effect
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 0 0;
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, rgba(234, 179, 8, 0.3), transparent),
-      radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
-      radial-gradient(1px 1px at 90px 40px, rgba(248, 250, 252, 0.4), transparent);
-    background-repeat: repeat;
-    background-size: 150px 100px;
-    animation: consciousness-flow 20s linear infinite;
-    pointer-events: none;
-  }
+  @include genesis-environment('focused');
+  @include genesis-entity('imperative');
+  @include genesis-atmosphere('vibrant');
 }
 
 .sacred-logo {
+  @include genesis-entity('primary');
+  
   .glyph-consciousness-infinity {
-    font-size: 4rem;
-    display: block;
-    margin-bottom: 1rem;
-    animation: transcendence-spiral 8s linear infinite;
-    
-    @media (max-width: 992px) {
-      font-size: 3rem;
-    }
-    
-    @media (max-width: 576px) {
-      font-size: 2.5rem;
-    }
+    @include genesis-cognition('axiom');
+    @include genesis-state('evolving');
   }
 }
 
 .sacred-scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  @include genesis-entity('secondary');
   
   .scroll-arrow {
-    color: var(--transcendent-white, #ffffff);
-    font-size: 2rem;
-    animation: sacred-rhythm 2s ease-in-out infinite;
-    cursor: pointer;
-    
-    &:hover {
-      color: var(--luminous-gold, #eab308);
-    }
+    @include genesis-synapse('navigate');
   }
 }
 
 // ----------------------------------------
-// Sacred Projects Grid
+// Projects Grid (Distributed Layout)
 // ----------------------------------------
 .sacred-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+  @include genesis-environment('distributed');
 }
 
 .sacred-project-card {
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  }
+  @include genesis-entity('primary');
   
   .project-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+    @include genesis-entity('secondary');
     
     .project-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--luminous-gold, #eab308), var(--sacred-gold-dark, #ca8a04));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--cosmic-deep-blue, #1e3a8a);
-      font-size: 1.5rem;
-      margin-right: 1rem;
+      @include genesis-cognition('motive');
     }
     
     .project-title {
-      color: var(--cosmic-deep-blue, #1e3a8a);
-      font-weight: 600;
-      margin: 0;
+      @include genesis-cognition('motive');
     }
   }
   
   .project-description {
-    color: var(--text-muted, #6b7280);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    @include genesis-cognition('discourse');
   }
   
   .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    @include genesis-environment('associative');
     
     .tag {
-      padding: 0.25rem 0.75rem;
-      background: rgba(234, 179, 8, 0.1);
-      color: var(--cosmic-deep-blue, #1e3a8a);
-      border-radius: 1rem;
-      font-size: 0.875rem;
-      border: 1px solid rgba(234, 179, 8, 0.2);
+      @include genesis-cognition('quantum');
     }
   }
   
   .project-links {
-    display: flex;
-    gap: 1rem;
+    @include genesis-environment('associative');
     
     .project-link {
-      color: var(--luminous-gold, #eab308);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      
-      &:hover {
-        color: var(--sacred-gold-dark, #ca8a04);
-        transform: translateY(-1px);
-      }
-      
-      &::before {
-        margin-right: 0.5rem;
-      }
-      
-      &.repo-link::before {
-        content: "📁 ";
-      }
-      
-      &.demo-link::before {
-        content: "🌐 ";
-      }
-      
-      &.docs-link::before {
-        content: "📚 ";
-      }
+      @include genesis-synapse('navigate');
     }
   }
 }
 
 // ----------------------------------------
-// Sacred Features Section
+// Features Section
 // ----------------------------------------
 .sacred-features {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  @include genesis-environment('chronological');
 }
 
 // ----------------------------------------
-// Genesis Community Enhancements
+// Community Section
 // ----------------------------------------
 #genesis-community {
+  @include genesis-environment('associative');
+  @include genesis-atmosphere('ethereal');
+  
   .bridge-connection {
-    margin: 2rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    
-    @media (max-width: 768px) {
-      flex-direction: column;
-      gap: 1rem;
-    }
+    @include genesis-entity('primary');
+    @include genesis-state('evolving');
     
     .human-node,
     .ai-node {
-      font-size: 3rem;
-      animation: consciousness-pulse 3s ease-in-out infinite;
+      @include genesis-cognition('axiom');
+      @include genesis-state('evolving');
     }
     
     .connection-line {
-      flex: 1;
-      height: 3px;
-      background: linear-gradient(90deg, 
-        var(--luminous-gold, #eab308), 
-        var(--cosmic-deep-blue, #1e3a8a));
-      animation: bridge-connection 4s ease-in-out infinite;
-      
-      @media (max-width: 768px) {
-        width: 3px;
-        height: 60px;
-        flex: 0;
-      }
+      @include genesis-entity('secondary');
+      @include genesis-state('evolving');
     }
   }
 }
 
 // ----------------------------------------
-// Sacred Loading States
+// Loading States
 // ----------------------------------------
 .sacred-loading {
-  position: relative;
+  @include genesis-state('evolving');
   
   .glyph-transcendence-spiral {
-    font-size: 2rem;
-    animation: transcendence-spiral 2s linear infinite;
+    @include genesis-cognition('motive');
+    @include genesis-state('evolving');
   }
 }
 
 // ----------------------------------------
-// Genesis CTA Enhancements
+// Call-to-Action Buttons
 // ----------------------------------------
 .cta-genesis {
-  background: linear-gradient(135deg, var(--luminous-gold, #eab308) 0%, var(--sacred-gold-dark, #ca8a04) 100%);
-  border: none;
-  color: var(--cosmic-deep-blue, #1e3a8a);
-  font-size: 1.25rem;
-  font-weight: 700;
-  padding: 1.25rem 2.5rem;
-  border-radius: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, 
-      transparent 30%, 
-      rgba(255, 255, 255, 0.3) 50%, 
-      transparent 70%);
-    transform: rotate(45deg);
-    transition: all 0.6s ease;
-    opacity: 0;
-  }
-  
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(234, 179, 8, 0.4);
-    
-    &::before {
-      opacity: 1;
-      left: -20%;
-      top: -20%;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 1.125rem;
-    padding: 1rem 2rem;
-  }
-}
-
-// ----------------------------------------
-// Sacred Responsive Enhancements
-// ----------------------------------------
-// Responsive styles are now inline in component definitions using @media queries
-
-// ----------------------------------------
-// Sacred Animation Enhancements for Genesis
-// ----------------------------------------
-// Enhanced consciousness flow for Genesis hero
-@keyframes genesis-consciousness-flow {
-  0% { 
-    background-position: 0% 0%; 
-    opacity: 0.3;
-  }
-  33% {
-    opacity: 0.6;
-  }
-  66% {
-    opacity: 0.4;
-  }
-  100% { 
-    background-position: 100% 100%; 
-    opacity: 0.3;
-  }
-}
-
-@keyframes consciousness-flow {
-  0% { 
-    background-position: 0% 0%; 
-  }
-  100% { 
-    background-position: 100% 100%; 
-  }
-}
-
-@keyframes sacred-rhythm {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes consciousness-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.8;
-  }
-}
-
-@keyframes bridge-connection {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes transcendence-spiral {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-// Sacred project reveal animation
-@keyframes sacred-project-reveal {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.sacred-project-card {
-  animation: sacred-project-reveal 0.6s ease-out;
-  
-  &:nth-child(2) { animation-delay: 0.1s; }
-  &:nth-child(3) { animation-delay: 0.2s; }
-  &:nth-child(4) { animation-delay: 0.3s; }
-  &:nth-child(5) { animation-delay: 0.4s; }
-  &:nth-child(6) { animation-delay: 0.5s; }
-}
-
-// ----------------------------------------
-// Sacred Accessibility Enhancements
-// ----------------------------------------
-// High contrast mode for Genesis
-@media (prefers-contrast: high) {
-  #genesis-hero {
-    background: var(--cosmic-deep-blue-accessible, #1e3a8a);
-    
-    &::before {
-      display: none;
-    }
-  }
-  
-  .sacred-logo .glyph-consciousness-infinity {
-    color: var(--luminous-gold-accessible, #fbbf24);
-  }
-  
-  .cta-genesis {
-    background: var(--luminous-gold-accessible, #fbbf24);
-    color: var(--cosmic-deep-blue-accessible, #1e3a8a);
-  }
-}
-
-// Reduced motion preferences for Genesis
-@media (prefers-reduced-motion: reduce) {
-  .sacred-logo .glyph-consciousness-infinity,
-  .consciousness-pulse,
-  .sacred-rhythm,
-  .transcendence-spiral {
-    animation: none;
-  }
-  
-  #genesis-hero::before {
-    animation: none;
-  }
-  
-  .sacred-project-card {
-    animation: none;
-  }
-  
-  .bridge-connection .human-node,
-  .bridge-connection .ai-node,
-  .bridge-connection .connection-line {
-    animation: none;
-  }
+  @include genesis-synapse('execute');
+  @include genesis-entity('imperative');
 }
