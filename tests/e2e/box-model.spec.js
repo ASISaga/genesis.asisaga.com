@@ -108,7 +108,7 @@ test.describe('Computed Style & Box-Model Integrity', () => {
 
       if (bleedIssues.length > 0) {
         for (const issue of bleedIssues.slice(0, 3)) {
-          const diag = await getComputedDiagnostics(page, issue.child.split('.')[0]);
+          const diag = await getComputedDiagnostics(page, issue.child);
           issue.diagnostics = formatDiagnostics(diag);
         }
       }
