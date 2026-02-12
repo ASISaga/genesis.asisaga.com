@@ -1,217 +1,164 @@
 ---
-applyTo: "**/_sass/**,**/*.scss,**/_sass/**/_*.scss"
-description: "SCSS guidance for Genesis subdomain: ontological design system, semantic mappings, zero raw CSS policy, and theme coordination."
+applyTo: "_sass/**/*.{scss,sass}"
+description: "SCSS standards for ASI Saga subdomain repositories — page-specific ontology-only styling"
 ---
 
-# Genesis Ontological SCSS Design System
+# Subdomain SCSS Instructions
 
-This subdomain uses the **Genesis Semantic SCSS Engine** from the ASI Saga theme repository. All visual styling comes from the theme's ontological engine.
+## Content-Only Architecture with Page-Specific SCSS
 
-## Core Principles
+Subdomain repositories should have page-specific SCSS in `_sass/main.scss` when needed. The theme provides the ontological design system. At build time, `assets/css/style.scss` from the theme gets merged into the subdomain by Jekyll, importing `_sass/main.scss` from the subdomain.
 
-### 1. Zero Raw CSS Properties
-**Subdomain SCSS files must contain NO raw CSS properties.**
+**NO `assets/css/custom.scss`** — Use `_sass/main.scss` for page-specific styling only.
 
-❌ **Wrong (Legacy Approach):**
+## MANDATORY: Zero Raw CSS
+
+Subdomain SCSS files must contain **ZERO raw CSS properties**:
+
+- ❌ NO `margin`, `padding`, `color`, `font-size`, `background`, `border`
+- ❌ NO unit values: `px`, `rem`, `em`, `%`, `vh`, `vw`
+- ❌ NO color values: `#hex`, `rgb()`, `hsl()`, `oklch()`
+- ❌ NO `@extend` (causes Jekyll build errors)
+- ❌ NO `@import "ontology/index"` (theme provides this)
+- ✅ ONLY ontological mixins (already available from theme)
+- ✅ Max 3 nesting levels
+
+## File Setup
+
+If page-specific styling is needed, create `_sass/main.scss`:
+
 ```scss
-.my-card {
-  padding: 2rem;
-  background: #1a1a2e;
-  border-radius: 12px;
-  color: white;
+// NO front matter needed
+// NO @import needed - ontology mixins already available from theme
+
+.my-page-component {
+  @include genesis-entity('primary');
 }
 ```
 
-✅ **Correct (Ontological Approach):**
-```scss
-.my-card {
-  @include genesis-entity('primary');  // All styling from theme engine
-}
-```
+**IMPORTANT**: 
+- Do NOT add Jekyll front matter (`---`) to `_sass/main.scss`
+- Do NOT import `ontology/index` (theme already provides it)
+- This file is for page-specific component styling only
+- For new components needed across subdomains, create PR to theme
 
-### 2. Semantic Class Names
-Use meaningful, content-focused class names that describe WHAT something is, not HOW it looks.
+## Ontology Mixins
 
-❌ **Wrong:** `.blue-box`, `.rounded-button`, `.big-text`
-✅ **Correct:** `.research-paper`, `.submit-action`, `.page-title`
-
-### 3. Mirrored Structure
-SCSS nesting should perfectly mirror HTML DOM hierarchy.
-
-```html
-<main class="research-hub">
-  <header class="intro-section">
-    <h1 class="hub-title">Neural Logic Research</h1>
-  </header>
-</main>
-```
+### Environment (Layout)
 
 ```scss
-.research-hub {
-  @include genesis-environment('focused');
-  
-  .intro-section {
-    @include genesis-entity('primary');
-    
-    .hub-title {
-      @include genesis-cognition('axiom');
-    }
-  }
-}
+@include genesis-environment('distributed');   // Auto-fit grid
+@include genesis-environment('focused');       // Single column, max-width
+@include genesis-environment('associative');   // Flexbox network
+@include genesis-environment('chronological'); // Vertical timeline
+@include genesis-environment('manifest');      // Dashboard grid
 ```
 
-## Ontological API Reference
+### Entity (Visual Presence)
 
-### Six Ontological Categories
+```scss
+@include genesis-entity('primary');      // Main card/block
+@include genesis-entity('secondary');    // Supporting content
+@include genesis-entity('imperative');   // Urgent/important
+@include genesis-entity('latent');       // Inactive/dimmed
+@include genesis-entity('aggregate');    // Container wrapper
+@include genesis-entity('ancestral');    // Archived/historical
+```
 
-1. **`genesis-environment($logic)`** - Spatial organization and layout
-   - `'distributed'` - Autonomous entities in non-linear grid
-   - `'focused'` - Singular narrative thread for reading
-   - `'associative'` - Network where connections matter
-   - `'chronological'` - Time-linear stream of events
-   - `'manifest'` - High-density dashboard
+### Cognition (Typography)
 
-2. **`genesis-entity($nature)`** - Visual presence and weight
-   - `'primary'` - Fundamental object of current view
-   - `'secondary'` - Supportive, contextual data
-   - `'imperative'` - System-critical, high-urgency
-   - `'latent'` - Backgrounded, awaiting activation
-   - `'aggregate'` - Container summarizing multiple entities
-   - `'ancestral'` - Archived or historical data
+```scss
+@include genesis-cognition('axiom');      // Headlines
+@include genesis-cognition('discourse');  // Body text
+@include genesis-cognition('protocol');   // Code/technical
+@include genesis-cognition('gloss');      // Metadata/small
+@include genesis-cognition('motive');     // Instructional
+@include genesis-cognition('quantum');    // Tags/chips
+```
 
-3. **`genesis-cognition($intent)`** - Information type and typography
-   - `'axiom'` - Foundational thesis or headline
-   - `'discourse'` - Standard prose/body text
-   - `'protocol'` - Technical/code content
-   - `'gloss'` - Minor annotations
-   - `'motive'` - Persuasive guidance
-   - `'quantum'` - Small chips/tags
+### Synapse (Interaction)
 
-4. **`genesis-synapse($vector)`** - Interaction patterns
-   - `'navigate'` - Link to different location
-   - `'execute'` - Primary action/button
-   - `'inquiry'` - Request more data/search
-   - `'destructive'` - Permanent removal
-   - `'social'` - Social sharing
+```scss
+@include genesis-synapse('navigate');     // Links
+@include genesis-synapse('execute');      // Action buttons
+@include genesis-synapse('inquiry');      // Search/expand
+@include genesis-synapse('destructive');  // Delete/remove
+@include genesis-synapse('social');       // Share/connect
+```
 
-5. **`genesis-state($condition)`** - Temporal state
-   - `'stable'` - Normal equilibrium
-   - `'evolving'` - Being updated/streamed
-   - `'deprecated'` - No longer current
-   - `'locked'` - Requires clearance
-   - `'simulated'` - Projection, not live
+### State (Temporal Condition)
 
-6. **`genesis-atmosphere($vibe)`** - Sensory texture
-   - `'neutral'` - Standard transparency
-   - `'ethereal'` - Light-based focus
-   - `'void'` - Deep-space, high-contrast
-   - `'vibrant'` - High-energy, colorful
+```scss
+@include genesis-state('stable');         // Verified/normal
+@include genesis-state('evolving');       // Loading/updating
+@include genesis-state('deprecated');     // Outdated
+@include genesis-state('locked');         // Restricted
+@include genesis-state('simulated');      // Preview/demo
+```
 
-## File Structure
+### Atmosphere (Mood)
 
-- `_sass/_main.scss` - Entry point, imports ontology system
-- `_sass/_genesis-ontology.scss` - Comprehensive semantic mappings for all Genesis classes
-- `_sass/_genesis-sacred.scss` - Genesis-specific customizations and special components
-- `_sass/pages/` - Legacy files (preserved for reference, not imported)
-
-## Evolution Mechanism
-
-When you discover a semantic pattern not covered by the current ontology:
-
-1. **Review existing variants** - Check the theme's INTEGRATION-GUIDE.md for all 31 variants
-2. **Try combinations** - Mix ontological mixins creatively before requesting new variants
-3. **Propose evolution** - If genuine gap exists, create an Ontological Proposition PR to theme repository
-4. **Document rationale** - Explain WHAT semantic role is missing and WHY it's universally applicable
-
-See `.github/agents/subdomain-evolution-agent.prompt.md` for detailed proposition workflow.
-
-## Validation Checklist
-
-Before committing SCSS changes:
-
-- [ ] **Zero Raw CSS**: No `px`, `rem`, `color`, `display`, `margin`, `padding`, etc.
-- [ ] **Semantic Purity**: Class names describe WHAT, not HOW
-- [ ] **Mirrored Structure**: SCSS nesting matches HTML hierarchy exactly
-- [ ] **Ontological Mixins**: Only use `@include genesis-*` mixins
-- [ ] **Theme Dependency**: Relies entirely on theme's `_engines.scss`
+```scss
+@include genesis-atmosphere('neutral');   // Default
+@include genesis-atmosphere('ethereal');  // Light/peaceful
+@include genesis-atmosphere('void');      // Dark/immersive
+@include genesis-atmosphere('vibrant');   // Energetic
+```
 
 ## Common Patterns
 
-### Blog Post / Article Page
+### Card Grid
+
 ```scss
-.blog-post {
+.project-grid {
+  @include genesis-environment('distributed');
+
+  .project-card {
+    @include genesis-entity('primary');
+
+    .project-card__title { @include genesis-cognition('axiom'); }
+    .project-card__desc { @include genesis-cognition('discourse'); }
+    .project-card__link { @include genesis-synapse('navigate'); }
+  }
+}
+```
+
+### Article Layout
+
+```scss
+.article {
   @include genesis-environment('focused');
   @include genesis-atmosphere('ethereal');
-  
-  .post-header {
-    @include genesis-entity('primary');
-    
-    .post-title { @include genesis-cognition('axiom'); }
-    .post-meta { @include genesis-cognition('gloss'); }
-  }
-  
-  .post-content {
-    @include genesis-cognition('discourse');
-  }
-  
-  .read-more {
-    @include genesis-synapse('navigate');
-  }
+
+  .article__title { @include genesis-cognition('axiom'); }
+  .article__meta { @include genesis-cognition('gloss'); }
+  .article__body { @include genesis-cognition('discourse'); }
 }
 ```
 
-### Dashboard / Analytics
-```scss
-.dashboard {
-  @include genesis-environment('manifest');
-  @include genesis-atmosphere('vibrant');
-  
-  .metric-card {
-    @include genesis-entity('primary');
-    @include genesis-state('evolving');
-  }
-}
-```
+## Identifying Semantic Gaps
 
-### Product Grid
-```scss
-.product-grid {
-  @include genesis-environment('distributed');
-  
-  .product-card {
-    @include genesis-entity('primary');
-    
-    .product-name { @include genesis-cognition('motive'); }
-    .buy-button { @include genesis-synapse('execute'); }
-  }
-}
-```
+If no mixin combination serves your page-specific styling need:
 
-## Forbidden Patterns
+1. Review all variants above and try creative combinations
+2. Confirm the gap is **semantic** (WHAT), not **visual** (HOW)
+3. Confirm this styling would be useful across multiple subdomains
+4. Submit PR to `theme.asisaga.com` to add the component to theme (NOT subdomain)
+5. If truly page-specific to this subdomain only, submit an Ontological Proposition
 
-❌ **Never do these in subdomain SCSS:**
-- Raw CSS properties (`color: #fff;`)
-- Media queries (handled by theme)
-- CSS custom properties/variables (provided by theme)
-- `@extend` directives (use mixins instead)
-- Deep nesting (>4 levels)
-- Global element selectors in components
+→ **Proposition process**: Theme's `.github/AGENTS.MD`
 
-## Theme Coordination
+## Verification Checklist
 
-- **Theme repository**: https://github.com/ASISaga/theme.asisaga.com
-- **Breaking changes**: Require coordinated PRs across theme and subdomains
-- **New tokens/mixins**: Proposed through Ontological Proposition PR template
-- **Documentation**: See theme's `_sass/ontology/INTEGRATION-GUIDE.md`
-
-## Agent Responsibilities
-
-For SCSS refactoring and migration workflows, see:
-- `.github/agents/scss-refactor-agent.prompt.md` - Migration specialist
-- `.github/agents/subdomain-evolution-agent.prompt.md` - Proposition creator
-
-## Resources
-
-- **Theme Ontology Guide**: https://github.com/ASISaga/theme.asisaga.com/blob/main/_sass/ontology/INTEGRATION-GUIDE.md
-- **Agent Ecosystem**: https://github.com/ASISaga/theme.asisaga.com/blob/main/.github/AGENTS.MD
-- **Evolution Philosophy**: https://github.com/ASISaga/theme.asisaga.com/blob/main/evolution.md
+Before committing SCSS:
+- [ ] File is `_sass/main.scss` (NOT `assets/css/custom.scss`)
+- [ ] NO Jekyll front matter (`---`)
+- [ ] NO `@import` statements (ontology already available)
+- [ ] Zero raw CSS properties
+- [ ] No `px`, `rem`, `%`, or color values
+- [ ] SCSS nesting mirrors HTML structure
+- [ ] Max 3 nesting levels
+- [ ] Page-specific components only (shared components go to theme)
+- [ ] Run `npm run test:scss` — Verify SCSS compiles
+- [ ] Run `npm run lint:scss` — Check code quality
+- [ ] All tests pass before committing

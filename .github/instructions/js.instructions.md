@@ -1,37 +1,108 @@
 ---
-applyTo: "**/assets/js/**,**/*.js,assets/js/**,**/scripts/**"
-description: "JavaScript guidance for subdomain: entry points, asset ordering, vendor flow, runtime concerns, and test hooks."
+applyTo: "assets/js/**/*.js"
+description: "JavaScript standards for ASI Saga subdomain repositories — mandatory script.js with progressive enhancement"
 ---
 
-# JS Entry & Asset Ordering
-- The subdomain JS entry is `/assets/js/script.js`.
-- Load order: always import the theme's `common.js` (or `assets/js/common.js`) before subdomain-specific scripts to avoid duplicate polyfills or conflicting initialization.
+# Subdomain JavaScript Instructions
 
-# File Locations & Conventions
-- Subdomain runtime JS: `/assets/js/`.
-- Vendor JS: `/assets/js/vendor/` — isolate vendor libs and document version and origin.
+## Mandatory File: assets/js/script.js
 
-# Vendor Flow & Compatibility
-- Vendor artifacts should be prepared locally and added to `/assets/js/vendor/` for GitHub Pages compatibility.
-- Prefer shipping minified vendor builds that are stable and documented. Verify license and reproducibility.
+**REQUIRED**: Every subdomain must have `assets/js/script.js`. This file is called from the HTML `<head>` in the theme layouts and gets merged into the subdomain at build time by Jekyll.
 
-# Runtime & Initialization
-- Keep initialization idempotent: add guards so multiple loads or HMR (during local dev) don't produce duplicate event handlers.
-- Expose public hooks for theme-level initialization when necessary (e.g., `window.asisaga = window.asisaga || { init() {} }`).
+### File Structure
 
-# Testing & Quality
-- Include small unit tests for critical UI helpers and run Playwright/Playwright-based E2E in CI where appropriate.
-- Lint JS in CI and use an agreed ESLint config shared with the theme when possible.
+```javascript
+// assets/js/script.js
+// This file is MANDATORY in all subdomains
 
-# Do Not
-- Do not override theme head scripts or modify bootstrapping done by the theme without coordination.
+// First, import common utilities from theme (if needed)
+// import { animateFadeIn } from '/assets/js/common/motion-utils.js';
 
-## Forbidden Patterns & Scans
-- **HTML-in-JS (fail):** Avoid assigning raw HTML strings to DOM APIs. Patterns to fail in CI include:
-	- `innerHTML\s*=`, `insertAdjacentHTML\s*\(`
-	- Template literals that include HTML tags: /`[\\s\\S]*<[^>]+>[\\s\\S]*`/
-- **Rationale:** These constructs encourage XSS-prone code and make accessibility and structure checks harder; prefer DOM creation helpers or templating libraries with safe escaping.
+// Then add subdomain-specific enhancements
+document.addEventListener('DOMContentLoaded', () => {
+  // Subdomain-specific progressive enhancements
+});
+```
 
-## Vendor & Idempotency Checks
-- **Vendor prepare:** Keep vendor artifacts in `/assets/js/vendor/` and run a vendor-prep step locally. CI should run the same vendor prepare step; if it produces uncommitted changes, fail the PR until artifacts are checked in.
-- **Idempotent initialization:** Ensure modules guard initialization so hot-reload or multiple imports do not add duplicate handlers.
+**IMPORTANT**:
+- `assets/js/script.js` must exist even if minimal
+- Theme's `assets/js/common.js` is loaded first by layouts
+- Your script.js can use utilities from theme's common.js
+- Script is loaded via theme layouts, automatically included
+
+## Philosophy: Progressive Enhancement
+
+Core content must be accessible without JavaScript running. Use JS only to enhance the user experience. The mandatory `assets/js/script.js` file should gracefully enhance, not gate content.
+
+## Core Rules
+
+1. **Content works without JS** — Never gate content behind JavaScript
+2. **`data-*` attributes for hooks** — Not CSS classes
+3. **Keyboard accessible** — All interactions work with keyboard
+4. **Screen reader friendly** — ARIA attributes where needed
+5. **ES6 modules** — Use `import`/`export` syntax when needed
+6. **Theme utilities available** — Can use utilities from theme's common.js
+
+## DOM Hooks
+
+Use `data-*` attributes to connect behavior:
+
+```html
+<button data-action="toggle" data-target="#details">Show Details</button>
+<div id="details" data-state="hidden">Details content</div>
+```
+
+```javascript
+document.querySelectorAll('[data-action="toggle"]').forEach(button => {
+  button.addEventListener('click', () => {
+    const target = document.querySelector(button.dataset.target);
+    const isHidden = target.dataset.state === 'hidden';
+    target.dataset.state = isHidden ? 'visible' : 'hidden';
+    button.setAttribute('aria-expanded', isHidden);
+  });
+});
+```
+
+## Semantic Interaction Mapping
+
+Map interactions to `genesis-synapse` variants via `data-synapse` attributes:
+
+```html
+<a href="/about" data-synapse="navigate">About Us</a>
+<button data-synapse="execute">Submit</button>
+<button data-synapse="destructive">Delete</button>
+```
+
+## Accessibility
+
+```javascript
+// Ensure keyboard support
+element.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    element.click();
+  }
+});
+
+// Manage focus for dynamic content
+newContent.setAttribute('tabindex', '-1');
+newContent.focus();
+```
+
+## Code Quality
+
+- Use kebab-case for filenames (`form-handler.js`)
+- Add JSDoc for public functions
+- Use feature detection before browser APIs
+- Handle errors gracefully
+
+## Quality Checklist
+
+Before committing JavaScript:
+- [ ] `assets/js/script.js` exists (mandatory)
+- [ ] Content accessible without JS running
+- [ ] DOM hooks use `data-*` attributes
+- [ ] Keyboard accessible
+- [ ] No inline scripts in HTML
+- [ ] Error handling in place
+- [ ] Progressive enhancement pattern followed
