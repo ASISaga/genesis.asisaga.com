@@ -3,50 +3,1232 @@
 // Integration with ASI Saga Theme's Genesis Semantic SCSS Engine
 //
 // ARCHITECTURE:
-// 1. Theme provides visual engine via ontological mixins
+// 1. Theme provides visual engine via ontological mixins (no import needed)
 // 2. This subdomain maps HTML classes to semantic roles
 // 3. Zero raw CSS properties allowed in subdomain SCSS
 //
-// MIGRATION STATUS: Fully upgraded to ontological system
-// Legacy page files preserved for reference but not imported
+// NOTE: No @import statements — ontology mixins are provided automatically
+// by the theme via remote_theme in _config.yml
 
 // ========================================
-// STEP 1: Import Theme Ontological Engine
+// PART 1: FOUNDATION & BASE ELEMENTS
 // ========================================
-@import "ontology/index";
+
+// Typography Hierarchy
+h1, h2, h3, h4, h5, h6 {
+  @include genesis-cognition('axiom');
+}
+
+p, .paragraph {
+  @include genesis-cognition('discourse');
+}
+
+code, pre, .code {
+  @include genesis-cognition('protocol');
+}
+
+small, .small-text, .caption {
+  @include genesis-cognition('gloss');
+}
+
+.emphasis, .highlight {
+  @include genesis-cognition('motive');
+}
+
+.tag, .badge, .chip {
+  @include genesis-cognition('quantum');
+}
+
+// Links & Navigation
+a {
+  @include genesis-synapse('navigate');
+}
+
+button, .btn, .button {
+  @include genesis-synapse('execute');
+}
+
+.btn-secondary, .button-secondary {
+  @include genesis-synapse('inquiry');
+}
+
+.btn-danger, .button-danger {
+  @include genesis-synapse('destructive');
+}
+
+.social-link, .share-button {
+  @include genesis-synapse('social');
+}
 
 // ========================================
-// STEP 2: Genesis Semantic Mappings
+// PART 2: LAYOUT ENVIRONMENTS
 // ========================================
-// Comprehensive ontological mappings for all Genesis HTML classes
-@import "genesis-ontology";
+
+// Focused Reading Layouts
+.container, .wrapper, .content-wrapper {
+  @include genesis-environment('focused');
+}
+
+// Distributed Grid Layouts
+.grid, .card-grid, .project-grid {
+  @include genesis-environment('distributed');
+}
+
+// Associative Network Layouts
+.network, .connections, .related-items {
+  @include genesis-environment('associative');
+}
+
+// Chronological Stream Layouts
+.timeline, .feed, .stream {
+  @include genesis-environment('chronological');
+}
+
+// Dashboard Layouts
+.dashboard, .admin-panel {
+  @include genesis-environment('manifest');
+}
 
 // ========================================
-// STEP 3: Genesis-Specific Customizations
+// PART 3: ENTITY PRESENCE
 // ========================================
-// Additional Genesis-specific semantic role mappings
-@import "genesis-sacred";
+
+// Primary Entities
+.card, .panel, .module {
+  @include genesis-entity('primary');
+}
+
+// Secondary Entities
+.sidebar, .aside, .supplementary {
+  @include genesis-entity('secondary');
+}
+
+// Imperative/Urgent Entities
+.alert, .notification, .warning {
+  @include genesis-entity('imperative');
+}
+
+// Latent/Background Entities
+.hidden, .background, .dimmed {
+  @include genesis-entity('latent');
+}
+
+// Aggregate Containers
+.collection, .group, .section-container {
+  @include genesis-entity('aggregate');
+}
+
+// Historical/Archived Entities
+.archived, .historical, .legacy {
+  @include genesis-entity('ancestral');
+}
 
 // ========================================
-// LEGACY FILES (Not Imported - For Reference Only)
+// PART 4: STATE CONDITIONS
 // ========================================
-// The following files contain legacy CSS with raw properties.
-// They are preserved for reference during the migration period
-// but are NOT imported. All functionality has been migrated
-// to ontological mappings in _genesis-ontology.scss
-//
-// Legacy files:
-// - pages/_foundation.scss (367 lines) → migrated
-// - pages/_sacred-design.scss (301 lines) → migrated
-// - pages/_mythic-components.scss (538 lines) → migrated
-// - pages/_futuristic-enhancements.scss (332 lines) → migrated
-// - pages/_genesis-page.scss (346 lines) → migrated
-// - pages/_community-page.scss (298 lines) → migrated
-// - pages/_genesis-home.scss (8 lines) → migrated
-// - pages/_thoughtlab.scss (108 lines) → migrated
-// - pages/_resources.scss (64 lines) → migrated
-// - pages/_community.scss (251 lines) → migrated
-// - pages/_brain.scss (33 lines) → migrated
-//
-// Total migrated: 2,646 lines of legacy CSS → ontological mixins
+
+.stable {
+  @include genesis-state('stable');
+}
+
+.loading, .updating, .processing {
+  @include genesis-state('evolving');
+}
+
+.deprecated, .outdated {
+  @include genesis-state('deprecated');
+}
+
+.locked, .private, .restricted {
+  @include genesis-state('locked');
+}
+
+.preview, .simulation, .mock {
+  @include genesis-state('simulated');
+}
+
 // ========================================
+// PART 5: ATMOSPHERIC VIBES
+// ========================================
+
+.light-mode, .light-theme {
+  @include genesis-atmosphere('ethereal');
+}
+
+.dark-mode, .dark-theme {
+  @include genesis-atmosphere('void');
+}
+
+.vibrant-mode, .colorful-theme {
+  @include genesis-atmosphere('vibrant');
+}
+
+// ========================================
+// PART 6: GENESIS-SPECIFIC COMPONENTS
+// ========================================
+
+// Hero Sections
+.genesis-hero,
+.sacred-hero {
+  @include genesis-environment('focused');
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('vibrant');
+}
+
+.hero-content {
+  @include genesis-entity('primary');
+}
+
+.hero-title {
+  @include genesis-cognition('axiom');
+}
+
+.hero-subtitle {
+  @include genesis-cognition('motive');
+}
+
+.hero-lead {
+  @include genesis-cognition('discourse');
+}
+
+// Algorithm Visualizations
+.algorithm-viz,
+.genesis-visualization,
+.consciousness-matrix {
+  @include genesis-entity('primary');
+  @include genesis-state('evolving');
+}
+
+.matrix-core,
+.algorithm-core {
+  @include genesis-entity('imperative');
+  @include genesis-state('evolving');
+}
+
+// Community Components
+.community-grid {
+  @include genesis-environment('distributed');
+}
+
+.community-card {
+  @include genesis-entity('primary');
+}
+
+.community-member {
+  @include genesis-entity('secondary');
+}
+
+.contribution-item {
+  @include genesis-entity('secondary');
+  @include genesis-synapse('navigate');
+}
+
+// Scoring Components
+.score-display {
+  @include genesis-entity('imperative');
+  @include genesis-cognition('axiom');
+}
+
+.metric-card {
+  @include genesis-entity('primary');
+}
+
+.metric-value {
+  @include genesis-cognition('axiom');
+}
+
+.metric-label {
+  @include genesis-cognition('gloss');
+}
+
+// Governance Components
+.proposal-card {
+  @include genesis-entity('primary');
+}
+
+.proposal-status {
+  @include genesis-cognition('quantum');
+  @include genesis-state('stable');
+}
+
+.proposal-status.active {
+  @include genesis-state('evolving');
+}
+
+.proposal-status.archived {
+  @include genesis-state('deprecated');
+}
+
+.vote-button {
+  @include genesis-synapse('execute');
+}
+
+// Documentation Components
+.doc-section {
+  @include genesis-environment('focused');
+}
+
+.doc-nav {
+  @include genesis-environment('chronological');
+  @include genesis-entity('secondary');
+}
+
+.doc-content {
+  @include genesis-cognition('discourse');
+}
+
+.code-example {
+  @include genesis-cognition('protocol');
+  @include genesis-entity('secondary');
+}
+
+.doc-callout {
+  @include genesis-entity('imperative');
+}
+
+// Brain Visualization Components
+.brain-viz {
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('void');
+}
+
+.thought-node {
+  @include genesis-entity('secondary');
+  @include genesis-state('evolving');
+}
+
+.connection-link {
+  @include genesis-entity('latent');
+  @include genesis-state('evolving');
+}
+
+// Thought Lab Components
+.thought-card {
+  @include genesis-entity('primary');
+}
+
+.thought-input {
+  @include genesis-entity('secondary');
+  @include genesis-synapse('execute');
+}
+
+.thought-output {
+  @include genesis-cognition('discourse');
+  @include genesis-state('evolving');
+}
+
+// Resource Components
+.resource-grid {
+  @include genesis-environment('distributed');
+}
+
+.resource-card {
+  @include genesis-entity('primary');
+}
+
+.resource-link {
+  @include genesis-synapse('navigate');
+}
+
+.resource-category {
+  @include genesis-cognition('quantum');
+}
+
+// ========================================
+// PART 7: SACRED DESIGN ELEMENTS
+// ========================================
+
+// Sacred Glyphs & Icons
+.glyph-consciousness-infinity,
+.glyph-essence-weave,
+.glyph-guardian-eye,
+.glyph-bridge-nexus,
+.glyph-potential-tree,
+.glyph-transcendence-spiral {
+  @include genesis-cognition('motive');
+}
+
+// Sacred Containers
+.sacred-section {
+  @include genesis-environment('focused');
+}
+
+.sacred-card {
+  @include genesis-entity('primary');
+}
+
+.sacred-feature-item {
+  @include genesis-entity('secondary');
+  @include genesis-synapse('navigate');
+}
+
+// Sacred Projects
+.sacred-projects-grid {
+  @include genesis-environment('distributed');
+}
+
+.sacred-project-card {
+  @include genesis-entity('primary');
+
+  .project-header {
+    @include genesis-entity('secondary');
+  }
+
+  .project-title {
+    @include genesis-cognition('motive');
+  }
+
+  .project-description {
+    @include genesis-cognition('discourse');
+  }
+
+  .project-icon {
+    @include genesis-cognition('motive');
+  }
+
+  .project-tags {
+    @include genesis-environment('associative');
+
+    .tag {
+      @include genesis-cognition('quantum');
+    }
+  }
+
+  .project-link {
+    @include genesis-synapse('navigate');
+  }
+}
+
+// Sacred Loading States
+.sacred-loading {
+  @include genesis-state('evolving');
+}
+
+// Sacred Scroll Indicator
+.sacred-scroll-indicator {
+  @include genesis-entity('secondary');
+
+  .scroll-arrow {
+    @include genesis-synapse('navigate');
+  }
+}
+
+// Sacred Logo
+.sacred-logo {
+  @include genesis-entity('primary');
+}
+
+// ========================================
+// PART 8: MYTHIC COMPONENTS
+// ========================================
+
+// Mythic Cards
+.mythic-card {
+  @include genesis-entity('primary');
+}
+
+.mythic-header {
+  @include genesis-entity('secondary');
+}
+
+.mythic-body {
+  @include genesis-cognition('discourse');
+}
+
+.mythic-footer {
+  @include genesis-entity('secondary');
+}
+
+// Mythic Navigation
+.mythic-nav {
+  @include genesis-environment('associative');
+}
+
+.mythic-nav-item {
+  @include genesis-synapse('navigate');
+}
+
+// Mythic Forms
+.mythic-form {
+  @include genesis-entity('primary');
+}
+
+.mythic-input {
+  @include genesis-entity('secondary');
+}
+
+.mythic-button {
+  @include genesis-synapse('execute');
+}
+
+// ========================================
+// PART 9: FUTURISTIC ENHANCEMENTS
+// ========================================
+
+// Futuristic Containers
+.futuristic-section {
+  @include genesis-atmosphere('vibrant');
+}
+
+.cyber-card {
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('void');
+}
+
+.holographic-panel {
+  @include genesis-entity('primary');
+  @include genesis-state('evolving');
+}
+
+// Neural Network Components
+.neural-node {
+  @include genesis-entity('secondary');
+  @include genesis-state('evolving');
+}
+
+.neural-connection {
+  @include genesis-entity('latent');
+  @include genesis-state('evolving');
+}
+
+// Quantum States
+.quantum-state {
+  @include genesis-state('simulated');
+}
+
+.quantum-probability {
+  @include genesis-cognition('protocol');
+  @include genesis-state('evolving');
+}
+
+// ========================================
+// PART 10: FORM ELEMENTS
+// ========================================
+
+.form-sacred,
+.form-group {
+  @include genesis-entity('secondary');
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  @include genesis-entity('secondary');
+  @include genesis-state('stable');
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @include genesis-state('evolving');
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  @include genesis-state('locked');
+}
+
+.input-error {
+  @include genesis-entity('imperative');
+}
+
+.input-success {
+  @include genesis-state('stable');
+}
+
+label {
+  @include genesis-cognition('gloss');
+}
+
+.form-help-text {
+  @include genesis-cognition('gloss');
+}
+
+// ========================================
+// PART 11: INTERACTIVE FEATURES
+// ========================================
+
+// Call-to-Action Elements
+.cta-genesis,
+.cta-primary {
+  @include genesis-synapse('execute');
+  @include genesis-entity('imperative');
+}
+
+.cta-secondary {
+  @include genesis-synapse('inquiry');
+  @include genesis-entity('secondary');
+}
+
+// Bridge Connections (Human-AI)
+.bridge-connection {
+  @include genesis-entity('primary');
+  @include genesis-state('evolving');
+}
+
+.human-node,
+.ai-node {
+  @include genesis-cognition('axiom');
+  @include genesis-state('evolving');
+}
+
+.connection-line {
+  @include genesis-entity('secondary');
+  @include genesis-state('evolving');
+}
+
+// Modal & Overlay Components
+.modal {
+  @include genesis-entity('primary');
+  @include genesis-atmosphere('void');
+}
+
+.modal-backdrop {
+  @include genesis-entity('latent');
+}
+
+.modal-header {
+  @include genesis-entity('secondary');
+}
+
+.modal-title {
+  @include genesis-cognition('motive');
+}
+
+.modal-body {
+  @include genesis-cognition('discourse');
+}
+
+.modal-footer {
+  @include genesis-environment('associative');
+}
+
+// Tooltips & Popovers
+.tooltip {
+  @include genesis-entity('secondary');
+  @include genesis-cognition('gloss');
+}
+
+.popover {
+  @include genesis-entity('secondary');
+}
+
+// Progress Indicators
+.progress-bar {
+  @include genesis-state('evolving');
+}
+
+.progress-label {
+  @include genesis-cognition('gloss');
+}
+
+// Tabs & Navigation
+.tab-list {
+  @include genesis-environment('associative');
+}
+
+.tab-item {
+  @include genesis-synapse('navigate');
+}
+
+.tab-panel {
+  @include genesis-entity('primary');
+}
+
+// Dropdown Menus
+.dropdown {
+  @include genesis-entity('secondary');
+}
+
+.dropdown-menu {
+  @include genesis-entity('secondary');
+  @include genesis-environment('chronological');
+}
+
+.dropdown-item {
+  @include genesis-synapse('navigate');
+}
+
+// Breadcrumbs
+.breadcrumb {
+  @include genesis-environment('chronological');
+}
+
+.breadcrumb-item {
+  @include genesis-synapse('navigate');
+  @include genesis-cognition('gloss');
+}
+
+// Pagination
+.pagination {
+  @include genesis-environment('associative');
+}
+
+.page-link {
+  @include genesis-synapse('navigate');
+}
+
+// ========================================
+// PART 12: GENESIS SACRED CUSTOMIZATIONS
+// ========================================
+
+// Hero & Page Structure (Environment)
+.genesis-hero-wrapper,
+.genesis-section-wrapper {
+  @include genesis-environment('focused');
+}
+
+.genesis-hero-content {
+  @include genesis-environment('focused');
+  @include genesis-entity('primary');
+}
+
+// Typography Hierarchy (Cognition)
+.genesis-hero-title {
+  @include genesis-cognition('axiom');
+}
+
+.genesis-subtitle,
+.genesis-section-title {
+  @include genesis-cognition('axiom');
+}
+
+.genesis-lead,
+.genesis-section-lead {
+  @include genesis-cognition('discourse');
+}
+
+.genesis-cta-text {
+  @include genesis-cognition('discourse');
+}
+
+.genesis-cta-footer {
+  @include genesis-cognition('gloss');
+}
+
+// Layout Containers (Environment)
+.genesis-section-content {
+  @include genesis-environment('focused');
+}
+
+.genesis-section-header {
+  @include genesis-entity('secondary');
+
+  .glyph-essence-weave,
+  .glyph-guardian-eye {
+    @include genesis-cognition('motive');
+  }
+}
+
+.genesis-stages-grid {
+  @include genesis-environment('distributed');
+
+  .consciousness-card {
+    @include genesis-entity('primary');
+  }
+
+  .card-title {
+    @include genesis-cognition('motive');
+  }
+
+  .card-text {
+    @include genesis-cognition('discourse');
+  }
+
+  .sacred-development-stage {
+    @include genesis-cognition('protocol');
+  }
+}
+
+// Community Layout (Associative)
+.genesis-community-layout {
+  @include genesis-environment('associative');
+}
+
+.genesis-community-content {
+  @include genesis-entity('primary');
+
+  .glyph-potential-tree {
+    @include genesis-cognition('motive');
+  }
+}
+
+.genesis-community-visual {
+  @include genesis-entity('secondary');
+}
+
+.bridge-caption {
+  @include genesis-cognition('gloss');
+}
+
+// Interactive Elements (Synapse)
+.genesis-cta-buttons,
+.genesis-community-buttons {
+  @include genesis-environment('associative');
+}
+
+.genesis-cta-wrapper {
+  @include genesis-environment('focused');
+  @include genesis-entity('primary');
+}
+
+.genesis-cta-title {
+  @include genesis-cognition('axiom');
+}
+
+// Feature Lists (Chronological)
+.sacred-features {
+  @include genesis-environment('chronological');
+}
+
+.form-sacred {
+  @include genesis-entity('primary');
+}
+
+// Hero Section (Special Genesis Styling — class-based)
+.genesis-hero-section {
+  @include genesis-environment('focused');
+  @include genesis-entity('imperative');
+  @include genesis-atmosphere('vibrant');
+}
+
+.sacred-logo {
+  @include genesis-entity('primary');
+
+  .glyph-consciousness-infinity {
+    @include genesis-cognition('axiom');
+    @include genesis-state('evolving');
+  }
+}
+
+.sacred-scroll-indicator {
+  @include genesis-entity('secondary');
+
+  .scroll-arrow {
+    @include genesis-synapse('navigate');
+  }
+}
+
+// Projects Grid (Distributed Layout)
+.sacred-projects-grid {
+  @include genesis-environment('distributed');
+}
+
+.sacred-project-card {
+  @include genesis-entity('primary');
+
+  .project-header {
+    @include genesis-entity('secondary');
+
+    .project-icon {
+      @include genesis-cognition('motive');
+    }
+
+    .project-title {
+      @include genesis-cognition('motive');
+    }
+  }
+
+  .project-description {
+    @include genesis-cognition('discourse');
+  }
+
+  .project-tags {
+    @include genesis-environment('associative');
+
+    .tag {
+      @include genesis-cognition('quantum');
+    }
+  }
+
+  .project-links {
+    @include genesis-environment('associative');
+
+    .project-link {
+      @include genesis-synapse('navigate');
+    }
+  }
+}
+
+// Community Section (class-based)
+.genesis-community-section {
+  @include genesis-environment('associative');
+  @include genesis-atmosphere('ethereal');
+
+  .bridge-connection {
+    @include genesis-entity('primary');
+    @include genesis-state('evolving');
+
+    .human-node,
+    .ai-node {
+      @include genesis-cognition('axiom');
+      @include genesis-state('evolving');
+    }
+
+    .connection-line {
+      @include genesis-entity('secondary');
+      @include genesis-state('evolving');
+    }
+  }
+}
+
+// Loading States
+.sacred-loading {
+  @include genesis-state('evolving');
+
+  .glyph-transcendence-spiral {
+    @include genesis-cognition('motive');
+    @include genesis-state('evolving');
+  }
+}
+
+// Call-to-Action Buttons
+.cta-genesis {
+  @include genesis-synapse('execute');
+  @include genesis-entity('imperative');
+}
+
+// ========================================
+// PART 13: LANGUAGE PAGE COMPONENTS
+// ========================================
+
+// Language Hero
+.language-hero {
+  @include genesis-environment('focused');
+  @include genesis-entity('imperative');
+  @include genesis-atmosphere('vibrant');
+}
+
+.language-hero__content {
+  @include genesis-environment('focused');
+}
+
+.language-hero__badge {
+  @include genesis-cognition('quantum');
+}
+
+.language-hero__title {
+  @include genesis-cognition('axiom');
+}
+
+.language-hero__description {
+  @include genesis-cognition('discourse');
+}
+
+.language-hero__actions {
+  @include genesis-environment('associative');
+}
+
+.language-hero__cta {
+  @include genesis-synapse('execute');
+}
+
+.language-hero__cta--secondary {
+  @include genesis-synapse('inquiry');
+}
+
+// Code Showcase
+.code-showcase {
+  @include genesis-environment('focused');
+  @include genesis-atmosphere('void');
+}
+
+.code-showcase__wrapper {
+  @include genesis-environment('focused');
+}
+
+.code-showcase__heading {
+  @include genesis-cognition('axiom');
+}
+
+.code-showcase__lead {
+  @include genesis-cognition('discourse');
+}
+
+.code-showcase__example {
+  @include genesis-entity('primary');
+}
+
+.code-showcase__filename {
+  @include genesis-cognition('gloss');
+}
+
+.code-showcase__code {
+  @include genesis-cognition('protocol');
+}
+
+// Language Constructs Grid
+.language-constructs {
+  @include genesis-environment('focused');
+}
+
+.language-constructs__wrapper {
+  @include genesis-environment('focused');
+}
+
+.language-constructs__heading {
+  @include genesis-cognition('axiom');
+}
+
+.language-constructs__lead {
+  @include genesis-cognition('discourse');
+}
+
+.language-constructs__grid {
+  @include genesis-environment('distributed');
+}
+
+.construct-card {
+  @include genesis-entity('primary');
+}
+
+.construct-card__header {
+  @include genesis-entity('secondary');
+}
+
+.construct-card__icon {
+  @include genesis-cognition('motive');
+}
+
+.construct-card__title {
+  @include genesis-cognition('axiom');
+}
+
+.construct-card__description {
+  @include genesis-cognition('discourse');
+}
+
+.construct-card__code {
+  @include genesis-cognition('protocol');
+}
+
+// Architecture Axioms
+.language-architecture {
+  @include genesis-environment('focused');
+  @include genesis-atmosphere('ethereal');
+}
+
+.language-architecture__wrapper {
+  @include genesis-environment('focused');
+}
+
+.language-architecture__heading {
+  @include genesis-cognition('axiom');
+}
+
+.language-architecture__lead {
+  @include genesis-cognition('discourse');
+}
+
+.language-architecture__axioms {
+  @include genesis-environment('chronological');
+}
+
+.axiom-card {
+  @include genesis-entity('primary');
+}
+
+.axiom-card__number {
+  @include genesis-cognition('quantum');
+}
+
+.axiom-card__title {
+  @include genesis-cognition('axiom');
+}
+
+.axiom-card__description {
+  @include genesis-cognition('discourse');
+}
+
+// Substrate Section
+.substrate-section {
+  @include genesis-environment('focused');
+}
+
+.substrate-section__wrapper {
+  @include genesis-environment('focused');
+}
+
+.substrate-section__heading {
+  @include genesis-cognition('axiom');
+}
+
+.substrate-section__lead {
+  @include genesis-cognition('discourse');
+}
+
+.substrate-section__layers {
+  @include genesis-environment('chronological');
+}
+
+.substrate-layer {
+  @include genesis-entity('secondary');
+}
+
+.substrate-layer--active {
+  @include genesis-entity('imperative');
+}
+
+.substrate-layer__icon {
+  @include genesis-cognition('motive');
+}
+
+.substrate-layer__title {
+  @include genesis-cognition('axiom');
+}
+
+.substrate-layer__label {
+  @include genesis-cognition('gloss');
+}
+
+// Core Pillars
+.language-pillars {
+  @include genesis-environment('focused');
+}
+
+.language-pillars__wrapper {
+  @include genesis-environment('focused');
+}
+
+.language-pillars__heading {
+  @include genesis-cognition('axiom');
+}
+
+.language-pillars__grid {
+  @include genesis-environment('distributed');
+}
+
+.pillar-card {
+  @include genesis-entity('primary');
+}
+
+.pillar-card__icon {
+  @include genesis-cognition('motive');
+}
+
+.pillar-card__title {
+  @include genesis-cognition('axiom');
+}
+
+.pillar-card__description {
+  @include genesis-cognition('discourse');
+}
+
+// Temporal Stages
+.language-stages {
+  @include genesis-environment('focused');
+  @include genesis-atmosphere('void');
+}
+
+.language-stages__wrapper {
+  @include genesis-environment('focused');
+}
+
+.language-stages__heading {
+  @include genesis-cognition('axiom');
+}
+
+.language-stages__lead {
+  @include genesis-cognition('discourse');
+}
+
+.language-stages__timeline {
+  @include genesis-environment('chronological');
+}
+
+.stage-card {
+  @include genesis-entity('primary');
+}
+
+.stage-card__phase {
+  @include genesis-cognition('quantum');
+}
+
+.stage-card__title {
+  @include genesis-cognition('axiom');
+}
+
+.stage-card__status {
+  @include genesis-cognition('gloss');
+}
+
+.stage-card__description {
+  @include genesis-cognition('discourse');
+}
+
+// Ecosystem Section
+.language-ecosystem {
+  @include genesis-environment('focused');
+}
+
+.language-ecosystem__wrapper {
+  @include genesis-environment('focused');
+}
+
+.language-ecosystem__heading {
+  @include genesis-cognition('axiom');
+}
+
+.language-ecosystem__lead {
+  @include genesis-cognition('discourse');
+}
+
+.language-ecosystem__grid {
+  @include genesis-environment('distributed');
+}
+
+.ecosystem-card {
+  @include genesis-entity('primary');
+}
+
+.ecosystem-card__title {
+  @include genesis-cognition('axiom');
+}
+
+.ecosystem-card__list {
+  @include genesis-cognition('discourse');
+}
+
+.ecosystem-card__code {
+  @include genesis-cognition('protocol');
+}
+
+// Language CTA
+.language-cta {
+  @include genesis-environment('focused');
+  @include genesis-entity('imperative');
+}
+
+.language-cta__wrapper {
+  @include genesis-environment('focused');
+}
+
+.language-cta__heading {
+  @include genesis-cognition('axiom');
+}
+
+.language-cta__description {
+  @include genesis-cognition('discourse');
+}
+
+.language-cta__actions {
+  @include genesis-environment('associative');
+}
+
+.language-cta__button {
+  @include genesis-synapse('execute');
+}
+
+.language-cta__footer {
+  @include genesis-cognition('gloss');
+}
+
+// ========================================
+// PART 14: RESPONSIVE & ACCESSIBILITY
+// ========================================
+// Responsive behavior and accessibility features
+// are handled by the theme's ontological engine.
+// No media queries or custom accessibility CSS needed here.
