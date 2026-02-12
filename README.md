@@ -19,6 +19,26 @@ Genesis is a revolutionary programming language designed to define *what to be* 
 - **Grammar**: [spec/grammar.md](https://github.com/ASISaga/Genesis/blob/main/spec/grammar.md)
 - **Examples**: [examples/](https://github.com/ASISaga/Genesis/tree/main/examples)
 
+## 📄 Content Pages
+
+This subdomain includes comprehensive documentation and resources:
+
+- **Home** (`index.html`) - Introduction to Genesis language
+- **Language** (`language.html`) - Language features and constructs
+- **Installation** (`install.html`) - Setup guide and quick start
+- **Examples** (`examples.html`) - Progressive tutorials from basics to advanced
+- **API Reference** (`api.html`) - Complete syntax and API documentation
+- **Standard Library** (`stdlib.html`) - Pre-built Avatars, Covenants, and templates
+- **Contributing** (`contribute.html`) - How to contribute to Genesis development
+- **Documentation** (`docs.html`) - Complete language documentation
+- **Algorithm** (`algorithm.html`) - Algorithmic foundations
+- **Scoring** (`scoring.html`) - Resonance scoring system
+- **Governance** (`governance.html`) - Project governance
+- **Community** (`community.html`) - Community and collaboration
+- **Resources** (`resources.html`) - Additional resources
+- **ThoughtLab** (`thoughtlab.html`) - Interactive experimentation
+- **Brain** (`brain.html`) - Neural architecture visualization
+
 ## 🎨 Design System
 
 This subdomain uses the **Genesis Semantic SCSS Engine** from the [ASI Saga Theme](https://github.com/ASISaga/theme.asisaga.com). All styling follows the ontological design system with zero raw CSS properties.
