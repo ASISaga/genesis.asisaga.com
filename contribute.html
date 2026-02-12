@@ -1,0 +1,554 @@
+---
+layout: default
+title: "Contributing to Genesis"
+description: "Join the Genesis community and help build the language for aligned superintelligence"
+permalink: /contribute/
+---
+
+<!-- Contribute Hero -->
+<section class="contribute-hero">
+  <div class="contribute-hero__wrapper">
+    <h1 class="contribute-hero__title">Contributing to Genesis</h1>
+    <p class="contribute-hero__description">
+      Help shape the programming language that will define the future of Artificial Superintelligence.
+      Whether you're a developer, researcher, or philosopher, your contributions matter.
+    </p>
+    <div class="contribute-hero__stats">
+      <div class="stat-item">
+        <span class="stat-item__value">Open Source</span>
+        <span class="stat-item__label">MIT Licensed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item__value">Active</span>
+        <span class="stat-item__label">Development</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item__value">Global</span>
+        <span class="stat-item__label">Community</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ways to Contribute -->
+<section class="contribute-section">
+  <div class="contribute-section__wrapper">
+    <h2 class="contribute-section__heading">Ways to Contribute</h2>
+    <p class="contribute-section__lead">
+      There are many ways to contribute to Genesis, regardless of your background
+    </p>
+    
+    <div class="contribution-types">
+      <article class="contribution-card">
+        <div class="contribution-card__icon">💻</div>
+        <h3 class="contribution-card__title">Code Contributions</h3>
+        <p class="contribution-card__description">
+          Improve the parser, interpreter, runtime, or CLI tools. Add new features,
+          fix bugs, or optimize performance.
+        </p>
+        <ul class="contribution-card__list">
+          <li>Language implementation (Python)</li>
+          <li>REPL enhancements</li>
+          <li>CLI tooling improvements</li>
+          <li>Runtime optimizations</li>
+          <li>Test coverage expansion</li>
+        </ul>
+      </article>
+
+      <article class="contribution-card">
+        <div class="contribution-card__icon">📚</div>
+        <h3 class="contribution-card__title">Documentation</h3>
+        <p class="contribution-card__description">
+          Write tutorials, improve API docs, create examples, or clarify language specifications.
+        </p>
+        <ul class="contribution-card__list">
+          <li>Tutorial creation</li>
+          <li>API reference improvements</li>
+          <li>Example programs</li>
+          <li>Translation to other languages</li>
+          <li>Beginner-friendly guides</li>
+        </ul>
+      </article>
+
+      <article class="contribution-card">
+        <div class="contribution-card__icon">🧪</div>
+        <h3 class="contribution-card__title">Testing & QA</h3>
+        <p class="contribution-card__description">
+          Write test cases, report bugs, verify fixes, or improve continuous integration.
+        </p>
+        <ul class="contribution-card__list">
+          <li>Unit test writing</li>
+          <li>Integration testing</li>
+          <li>Bug reporting</li>
+          <li>Edge case identification</li>
+          <li>CI/CD improvements</li>
+        </ul>
+      </article>
+
+      <article class="contribution-card">
+        <div class="contribution-card__icon">🎨</div>
+        <h3 class="contribution-card__title">Standard Library</h3>
+        <p class="contribution-card__description">
+          Create pre-built Avatars, Covenants, or Domain templates for the community.
+        </p>
+        <ul class="contribution-card__list">
+          <li>Avatar definitions (historical figures)</li>
+          <li>Ethical Covenant templates</li>
+          <li>Domain patterns</li>
+          <li>Utility functions</li>
+          <li>Best practice examples</li>
+        </ul>
+      </article>
+
+      <article class="contribution-card">
+        <div class="contribution-card__icon">🔬</div>
+        <h3 class="contribution-card__title">Research & Design</h3>
+        <p class="contribution-card__description">
+          Explore theoretical foundations, propose language enhancements, or research ASI alignment.
+        </p>
+        <ul class="contribution-card__list">
+          <li>Language design proposals</li>
+          <li>Philosophical foundations</li>
+          <li>Alignment research</li>
+          <li>Performance analysis</li>
+          <li>Comparative studies</li>
+        </ul>
+      </article>
+
+      <article class="contribution-card">
+        <div class="contribution-card__icon">🤝</div>
+        <h3 class="contribution-card__title">Community</h3>
+        <p class="contribution-card__description">
+          Help others learn Genesis, moderate discussions, or organize community events.
+        </p>
+        <ul class="contribution-card__list">
+          <li>Answer questions</li>
+          <li>Code reviews</li>
+          <li>Community moderation</li>
+          <li>Event organization</li>
+          <li>Outreach and advocacy</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Getting Started -->
+<section class="contribute-section contribute-section--alt">
+  <div class="contribute-section__wrapper">
+    <h2 class="contribute-section__heading">Getting Started</h2>
+    
+    <div class="getting-started-steps">
+      <article class="getting-started-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3 class="step-title">Fork the Repository</h3>
+          <p class="step-description">
+            Create your own fork of the Genesis repository on GitHub:
+          </p>
+          <pre class="step-code"><code># Fork on GitHub, then clone your fork
+git clone https://github.com/YOUR-USERNAME/Genesis.git
+cd Genesis
+
+# Add upstream remote
+git remote add upstream https://github.com/ASISaga/Genesis.git</code></pre>
+        </div>
+      </article>
+
+      <article class="getting-started-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3 class="step-title">Set Up Development Environment</h3>
+          <p class="step-description">
+            Install dependencies and verify your setup:
+          </p>
+          <pre class="step-code"><code># Ensure Python 3.8+
+python3 --version
+
+# Run tests to verify setup
+python3 -m pytest tests/
+
+# Try the REPL
+python3 tools/genesis.py repl</code></pre>
+        </div>
+      </article>
+
+      <article class="getting-started-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3 class="step-title">Find an Issue or Create One</h3>
+          <p class="step-description">
+            Browse existing issues or propose a new feature:
+          </p>
+          <ul class="step-list">
+            <li>Check <a href="https://github.com/ASISaga/Genesis/issues" target="_blank" rel="noopener">open issues</a> for "good first issue" labels</li>
+            <li>Read <a href="https://github.com/ASISaga/Genesis/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">CONTRIBUTING.md</a> for guidelines</li>
+            <li>Discuss your idea in an issue before starting large changes</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="getting-started-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3 class="step-title">Create a Feature Branch</h3>
+          <p class="step-description">
+            Work on a dedicated branch for your contribution:
+          </p>
+          <pre class="step-code"><code># Update your main branch
+git checkout main
+git pull upstream main
+
+# Create feature branch
+git checkout -b feature/your-feature-name</code></pre>
+        </div>
+      </article>
+
+      <article class="getting-started-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3 class="step-title">Make Your Changes</h3>
+          <p class="step-description">
+            Follow coding standards and write tests:
+          </p>
+          <ul class="step-list">
+            <li>Follow the existing code style (use <code>genesis fmt</code>)</li>
+            <li>Write or update tests for your changes</li>
+            <li>Update documentation if needed</li>
+            <li>Ensure all tests pass</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="getting-started-step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h3 class="step-title">Submit a Pull Request</h3>
+          <p class="step-description">
+            Push your changes and create a PR:
+          </p>
+          <pre class="step-code"><code># Push to your fork
+git push origin feature/your-feature-name
+
+# Create PR on GitHub
+# Provide clear description of changes
+# Reference any related issues</code></pre>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Coding Standards -->
+<section class="contribute-section">
+  <div class="contribute-section__wrapper">
+    <h2 class="contribute-section__heading">Coding Standards</h2>
+    
+    <div class="standards-grid">
+      <article class="standard-card">
+        <h3 class="standard-card__title">Code Style</h3>
+        <ul class="standard-card__list">
+          <li>Follow PEP 8 for Python code</li>
+          <li>Use <code>genesis fmt</code> to format code automatically</li>
+          <li>Keep functions focused and well-named</li>
+          <li>Add docstrings for public APIs</li>
+          <li>Use type hints where applicable</li>
+        </ul>
+      </article>
+
+      <article class="standard-card">
+        <h3 class="standard-card__title">Testing</h3>
+        <ul class="standard-card__list">
+          <li>Write tests for all new features</li>
+          <li>Ensure existing tests pass</li>
+          <li>Use pytest for Python tests</li>
+          <li>Aim for high code coverage</li>
+          <li>Test edge cases and error conditions</li>
+        </ul>
+      </article>
+
+      <article class="standard-card">
+        <h3 class="standard-card__title">Documentation</h3>
+        <ul class="standard-card__list">
+          <li>Update docs for new features</li>
+          <li>Include code examples</li>
+          <li>Write clear commit messages</li>
+          <li>Add comments for complex logic</li>
+          <li>Keep README.md up to date</li>
+        </ul>
+      </article>
+
+      <article class="standard-card">
+        <h3 class="standard-card__title">Commits</h3>
+        <ul class="standard-card__list">
+          <li>Write descriptive commit messages</li>
+          <li>Use present tense ("Add feature" not "Added feature")</li>
+          <li>Reference issue numbers (e.g., "Fix #123")</li>
+          <li>Keep commits focused and atomic</li>
+          <li>Sign commits if possible</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Pull Request Process -->
+<section class="contribute-section contribute-section--alt">
+  <div class="contribute-section__wrapper">
+    <h2 class="contribute-section__heading">Pull Request Process</h2>
+    
+    <div class="pr-process">
+      <article class="pr-step">
+        <h3 class="pr-step__title">1. PR Description</h3>
+        <p class="pr-step__description">
+          Provide a clear description of your changes:
+        </p>
+        <ul class="pr-step__list">
+          <li><strong>What</strong> - Summarize the changes made</li>
+          <li><strong>Why</strong> - Explain the motivation or problem solved</li>
+          <li><strong>How</strong> - Describe the approach taken</li>
+          <li><strong>Testing</strong> - Explain how you tested the changes</li>
+          <li><strong>Related Issues</strong> - Link to relevant issues</li>
+        </ul>
+      </article>
+
+      <article class="pr-step">
+        <h3 class="pr-step__title">2. Code Review</h3>
+        <p class="pr-step__description">
+          Your PR will be reviewed by maintainers and community members:
+        </p>
+        <ul class="pr-step__list">
+          <li>Respond to feedback promptly and respectfully</li>
+          <li>Make requested changes in new commits (don't force-push)</li>
+          <li>Engage in constructive discussion</li>
+          <li>Be open to suggestions and alternative approaches</li>
+        </ul>
+      </article>
+
+      <article class="pr-step">
+        <h3 class="pr-step__title">3. CI Checks</h3>
+        <p class="pr-step__description">
+          Automated checks must pass before merging:
+        </p>
+        <ul class="pr-step__list">
+          <li>All tests pass</li>
+          <li>Code style checks pass (linting)</li>
+          <li>No merge conflicts with main branch</li>
+          <li>Documentation builds successfully</li>
+        </ul>
+      </article>
+
+      <article class="pr-step">
+        <h3 class="pr-step__title">4. Approval & Merge</h3>
+        <p class="pr-step__description">
+          Once approved, a maintainer will merge your PR:
+        </p>
+        <ul class="pr-step__list">
+          <li>At least one maintainer approval required</li>
+          <li>All conversations resolved</li>
+          <li>CI checks passing</li>
+          <li>Your contribution becomes part of Genesis!</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Code of Conduct -->
+<section class="contribute-section">
+  <div class="contribute-section__wrapper">
+    <h2 class="contribute-section__heading">Code of Conduct</h2>
+    <p class="contribute-section__lead">
+      The Genesis community is committed to providing a welcoming and inclusive environment
+    </p>
+    
+    <div class="conduct-principles">
+      <article class="conduct-principle">
+        <h3 class="conduct-principle__title">🤝 Be Respectful</h3>
+        <p class="conduct-principle__description">
+          Treat all community members with respect and kindness. Harassment, discrimination,
+          and hostile behavior will not be tolerated.
+        </p>
+      </article>
+
+      <article class="conduct-principle">
+        <h3 class="conduct-principle__title">🌍 Be Inclusive</h3>
+        <p class="conduct-principle__description">
+          Welcome contributors from all backgrounds. Value diverse perspectives and experiences
+          in shaping the future of aligned superintelligence.
+        </p>
+      </article>
+
+      <article class="conduct-principle">
+        <h3 class="conduct-principle__title">💡 Be Constructive</h3>
+        <p class="conduct-principle__description">
+          Provide helpful feedback. Critique ideas, not people. Focus on building up
+          rather than tearing down.
+        </p>
+      </article>
+
+      <article class="conduct-principle">
+        <h3 class="conduct-principle__title">🔍 Be Transparent</h3>
+        <p class="conduct-principle__description">
+          Communicate openly about your intentions, methods, and potential conflicts of interest.
+          Honesty builds trust.
+        </p>
+      </article>
+
+      <article class="conduct-principle">
+        <h3 class="conduct-principle__title">📚 Be Learning-Focused</h3>
+        <p class="conduct-principle__description">
+          We're all learning together. Ask questions, admit mistakes, and help others grow.
+          No question is too basic.
+        </p>
+      </article>
+
+      <article class="conduct-principle">
+        <h3 class="conduct-principle__title">🛡️ Be Ethical</h3>
+        <p class="conduct-principle__description">
+          Uphold the principles of aligned ASI development. Consider the long-term implications
+          of your contributions on humanity.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Recognition -->
+<section class="contribute-section contribute-section--alt">
+  <div class="contribute-section__wrapper">
+    <h2 class="contribute-section__heading">Recognition & Attribution</h2>
+    
+    <div class="recognition-content">
+      <p class="recognition-intro">
+        Every contribution to Genesis matters, and we believe in recognizing our contributors:
+      </p>
+      
+      <div class="recognition-types">
+        <article class="recognition-item">
+          <h3 class="recognition-item__title">Contributors List</h3>
+          <p class="recognition-item__description">
+            All contributors are listed in the repository's <code>CONTRIBUTORS.md</code> file
+            and acknowledged in release notes.
+          </p>
+        </article>
+
+        <article class="recognition-item">
+          <h3 class="recognition-item__title">Author Attribution</h3>
+          <p class="recognition-item__description">
+            Significant contributions are attributed in the code, documentation, or
+            standard library modules.
+          </p>
+        </article>
+
+        <article class="recognition-item">
+          <h3 class="recognition-item__title">Community Spotlight</h3>
+          <p class="recognition-item__description">
+            Outstanding contributors may be featured in community updates, blog posts,
+            or social media recognition.
+          </p>
+        </article>
+
+        <article class="recognition-item">
+          <h3 class="recognition-item__title">Maintainer Path</h3>
+          <p class="recognition-item__description">
+            Consistent, high-quality contributors may be invited to become project maintainers
+            with expanded responsibilities.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resources for Contributors -->
+<section class="contribute-section">
+  <div class="contribute-section__wrapper">
+    <h2 class="contribute-section__heading">Resources for Contributors</h2>
+    
+    <div class="resources-grid">
+      <article class="resource-card">
+        <h3 class="resource-card__title">📘 Developer Onboarding</h3>
+        <p class="resource-card__description">
+          Complete guide to setting up your development environment and understanding the codebase.
+        </p>
+        <a href="https://github.com/ASISaga/Genesis/blob/main/DEVELOPER_ONBOARDING.md" target="_blank" rel="noopener" class="resource-card__link">
+          Read Guide →
+        </a>
+      </article>
+
+      <article class="resource-card">
+        <h3 class="resource-card__title">📐 Language Specification</h3>
+        <p class="resource-card__description">
+          Formal definition of Genesis syntax, semantics, and philosophical foundations.
+        </p>
+        <a href="https://github.com/ASISaga/Genesis/blob/main/spec/language-specification.md" target="_blank" rel="noopener" class="resource-card__link">
+          Read Spec →
+        </a>
+      </article>
+
+      <article class="resource-card">
+        <h3 class="resource-card__title">🔧 Architecture Docs</h3>
+        <p class="resource-card__description">
+          Deep dive into the runtime, parser, interpreter, and resonance engine architecture.
+        </p>
+        <a href="https://github.com/ASISaga/Genesis/tree/main/docs" target="_blank" rel="noopener" class="resource-card__link">
+          Browse Docs →
+        </a>
+      </article>
+
+      <article class="resource-card">
+        <h3 class="resource-card__title">💬 Community Discussions</h3>
+        <p class="resource-card__description">
+          Join conversations about Genesis development, features, and ASI alignment research.
+        </p>
+        <a href="https://github.com/ASISaga/Genesis/discussions" target="_blank" rel="noopener" class="resource-card__link">
+          Join Discussions →
+        </a>
+      </article>
+
+      <article class="resource-card">
+        <h3 class="resource-card__title">🐛 Issue Tracker</h3>
+        <p class="resource-card__description">
+          Browse open issues, report bugs, or propose new features and enhancements.
+        </p>
+        <a href="https://github.com/ASISaga/Genesis/issues" target="_blank" rel="noopener" class="resource-card__link">
+          View Issues →
+        </a>
+      </article>
+
+      <article class="resource-card">
+        <h3 class="resource-card__title">📊 Project Roadmap</h3>
+        <p class="resource-card__description">
+          See what's planned for Genesis and where you can make the biggest impact.
+        </p>
+        <a href="https://github.com/ASISaga/Genesis#roadmap" target="_blank" rel="noopener" class="resource-card__link">
+          View Roadmap →
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="contribute-section contribute-section--cta">
+  <div class="contribute-section__wrapper">
+    <h2 class="contribute-section__heading">Ready to Make Your First Contribution?</h2>
+    <p class="contribute-section__lead">
+      Join us in building the language that will define the future of aligned superintelligence
+    </p>
+    
+    <div class="cta-actions">
+      <a href="https://github.com/ASISaga/Genesis" target="_blank" rel="noopener" class="cta-button cta-button--primary">
+        View Repository on GitHub
+      </a>
+      <a href="https://github.com/ASISaga/Genesis/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener" class="cta-button cta-button--secondary">
+        Find Good First Issues
+      </a>
+    </div>
+    
+    <p class="cta-footer">
+      Questions? Open a <a href="https://github.com/ASISaga/Genesis/discussions" target="_blank" rel="noopener">discussion</a> or reach out to the community.
+    </p>
+  </div>
+</section>

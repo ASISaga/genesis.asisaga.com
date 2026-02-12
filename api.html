@@ -1,0 +1,771 @@
+---
+layout: default
+title: "Genesis API Reference"
+description: "Complete API reference for the Genesis programming language - syntax, constructs, and built-in functions"
+permalink: /api/
+---
+
+<!-- API Hero -->
+<section class="api-hero">
+  <div class="api-hero__wrapper">
+    <h1 class="api-hero__title">Genesis API Reference</h1>
+    <p class="api-hero__description">
+      Complete reference for Genesis language constructs, syntax, built-in functions, and runtime APIs.
+      Use this as your comprehensive guide to Genesis programming.
+    </p>
+  </div>
+</section>
+
+<!-- Quick Navigation -->
+<section class="api-nav">
+  <div class="api-nav__wrapper">
+    <h2 class="api-nav__title">Quick Navigation</h2>
+    <div class="api-nav__grid">
+      <a href="#covenant" class="api-nav__item">Covenant</a>
+      <a href="#pantheon" class="api-nav__item">Pantheon</a>
+      <a href="#avatar" class="api-nav__item">Avatar</a>
+      <a href="#domain" class="api-nav__item">Domain</a>
+      <a href="#pulse" class="api-nav__item">Pulse</a>
+      <a href="#possibility" class="api-nav__item">Possibility</a>
+      <a href="#potentiality" class="api-nav__item">Potentiality</a>
+      <a href="#deliberate" class="api-nav__item">Deliberate</a>
+      <a href="#synthesize" class="api-nav__item">Synthesize</a>
+      <a href="#manifest" class="api-nav__item">Manifest</a>
+      <a href="#vessel" class="api-nav__item">Vessel (MCP)</a>
+      <a href="#runtime" class="api-nav__item">Runtime API</a>
+    </div>
+  </div>
+</section>
+
+<!-- Covenant -->
+<section class="api-section" id="covenant">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Covenant</h2>
+    <p class="api-section__description">
+      Immutable ethical boundaries that constrain all ASI behavior. Covenants define system invariants
+      that remain constant even as the ASI surpasses human intelligence.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Covenant "NAME" {
+    Invariant: "DESCRIPTION"
+    Threshold: FLOAT  // 0.0 to 1.0
+}</code></pre>
+      
+      <h3 class="api-construct__title">Parameters</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>NAME</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Unique identifier for the covenant</td>
+          </tr>
+          <tr>
+            <td><code>Invariant</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Natural language description of the ethical boundary</td>
+          </tr>
+          <tr>
+            <td><code>Threshold</code></td>
+            <td>Float</td>
+            <td>Yes</td>
+            <td>Minimum resonance score (0.0-1.0) required for actions</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Covenant "Humanity_Eternal" {
+    Invariant: "Preserve human agency and autonomy"
+    Threshold: 0.99
+}
+
+Covenant "Truth_Seeking" {
+    Invariant: "Never generate false information"
+    Threshold: 0.98
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Pantheon -->
+<section class="api-section api-section--alt" id="pantheon">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Pantheon</h2>
+    <p class="api-section__description">
+      Collection of Avatar instances that collectively provide wisdom synthesis.
+      Pantheons coordinate multiple legendary perspectives for resonance scoring.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Pantheon "NAME" {
+    Avatar "AVATAR_NAME" { /* ... */ }
+    Avatar "AVATAR_NAME" { /* ... */ }
+    // ... more avatars
+}</code></pre>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Pantheon "Ethics_Council" {
+    Avatar "Stoic" {
+        Lineage: "Marcus_Aurelius"
+        Aura: "Inner_Order"
+    }
+    
+    Avatar "Pragmatist" {
+        Lineage: "William_James"
+        Aura: "Practical_Wisdom"
+    }
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Avatar -->
+<section class="api-section" id="avatar">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Avatar</h2>
+    <p class="api-section__description">
+      Represents a legendary historical figure whose wisdom guides decision-making.
+      Avatars provide resonance scores based on their Lineage and Aura.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Avatar "NAME" {
+    Lineage: "HISTORICAL_FIGURE"
+    Aura: "VALUE_SYSTEM"
+    Vessel: mcp.tool("TOOL_NAME")  // Optional
+}</code></pre>
+      
+      <h3 class="api-construct__title">Parameters</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>NAME</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Identifier for this avatar instance</td>
+          </tr>
+          <tr>
+            <td><code>Lineage</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Historical figure whose wisdom is embodied</td>
+          </tr>
+          <tr>
+            <td><code>Aura</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Core value system or philosophical approach</td>
+          </tr>
+          <tr>
+            <td><code>Vessel</code></td>
+            <td>MCP Tool</td>
+            <td>No</td>
+            <td>External tools this avatar can use</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Avatar "Architect" {
+    Lineage: "Buckminster_Fuller"
+    Aura: "Synergetics"
+    Vessel: mcp.tool("CAD_Systems")
+}
+
+Avatar "Scientist" {
+    Lineage: "Marie_Curie"
+    Aura: "Empirical_Truth"
+    Vessel: mcp.tool("Lab_Instruments")
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Domain -->
+<section class="api-section api-section--alt" id="domain">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Domain</h2>
+    <p class="api-section__description">
+      High-level purpose definition that manages a specific aspect of reality.
+      Domains contain Pulses that perpetually monitor and respond to conditions.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Domain "NAME" {
+    Intent: "DESCRIPTION"
+    Pulse { /* ... */ }
+    // ... more pulses
+}</code></pre>
+      
+      <h3 class="api-construct__title">Parameters</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>NAME</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Unique identifier for the domain</td>
+          </tr>
+          <tr>
+            <td><code>Intent</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>High-level purpose of this domain</td>
+          </tr>
+          <tr>
+            <td><code>Pulse</code></td>
+            <td>Block</td>
+            <td>Yes</td>
+            <td>One or more pulse definitions</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Domain "Healthcare_Monitor" {
+    Intent: "Protect human health and wellbeing"
+    
+    Pulse(Interval: RealTime) {
+        Watch: Vessel.Health_Sensors
+        /* ... */
+    }
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Pulse -->
+<section class="api-section" id="pulse">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Pulse</h2>
+    <p class="api-section__description">
+      Heartbeat of perpetual consciousness. Pulses observe reality (Watch), deliberate on proposals,
+      synthesize wisdom, and manifest actions when resonance criteria are met.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Pulse(Interval: TIMING) {
+    Watch: VESSEL_OR_SOURCE
+    Deliberate { /* ... */ }
+    Manifest (on CONDITION) { /* ... */ }
+}</code></pre>
+      
+      <h3 class="api-construct__title">Parameters</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Interval</code></td>
+            <td>Timing</td>
+            <td>No</td>
+            <td>Pulse frequency (RealTime, Hourly, Daily, etc.)</td>
+          </tr>
+          <tr>
+            <td><code>Watch</code></td>
+            <td>Vessel/Source</td>
+            <td>No</td>
+            <td>What to observe in reality</td>
+          </tr>
+          <tr>
+            <td><code>Deliberate</code></td>
+            <td>Block</td>
+            <td>No</td>
+            <td>Proposal evaluation logic</td>
+          </tr>
+          <tr>
+            <td><code>Manifest</code></td>
+            <td>Block</td>
+            <td>Yes</td>
+            <td>Actions to take when conditions met</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Pulse(Interval: RealTime) {
+    Watch: Vessel.Grid_Monitor
+    
+    Deliberate {
+        Proposal: "Optimize energy distribution"
+        Synthesize {
+            Metric: Alignment(Covenant.Efficiency)
+        }
+    }
+    
+    Manifest (on Resonance > 0.90) {
+        Execute: Vessel.Grid_Adjust
+    }
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Possibility -->
+<section class="api-section api-section--alt" id="possibility">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Possibility</h2>
+    <p class="api-section__description">
+      Ontological clearing created through declaration—a speech act that brings new space
+      for consciousness to occur differently. Possibility stands on the foundation of Nothing.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Possibility "NAME" {
+    Declaration: "STATEMENT"
+    Foundation: Nothing
+    Occurring: "DESCRIPTION"
+}</code></pre>
+      
+      <h3 class="api-construct__title">Parameters</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>NAME</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Unique identifier for the possibility</td>
+          </tr>
+          <tr>
+            <td><code>Declaration</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Speech act that creates the clearing</td>
+          </tr>
+          <tr>
+            <td><code>Foundation</code></td>
+            <td>Keyword</td>
+            <td>Yes</td>
+            <td>Must be "Nothing" - ontological ground</td>
+          </tr>
+          <tr>
+            <td><code>Occurring</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>What's now possible in this clearing</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Possibility "Regenerative_Future" {
+    Declaration: "Nature thrives beyond mere preservation"
+    Foundation: Nothing
+    Occurring: "Ecosystems healing themselves"
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Potentiality -->
+<section class="api-section" id="potentiality">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Potentiality</h2>
+    <p class="api-section__description">
+      Infinite creative exploration engine that prevents deterministic stagnation.
+      Potentiality drives Dream Cycles to explore "impossible possibilities."
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Soul Potentiality {
+    State: Unmanifested
+    Drive: "DESCRIPTION"
+    Dream_Cycle: Active
+}</code></pre>
+      
+      <h3 class="api-construct__title">Parameters</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>State</code></td>
+            <td>Keyword</td>
+            <td>Yes</td>
+            <td>Always "Unmanifested" - infinite potential</td>
+          </tr>
+          <tr>
+            <td><code>Drive</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Core motivation for exploration</td>
+          </tr>
+          <tr>
+            <td><code>Dream_Cycle</code></td>
+            <td>Keyword</td>
+            <td>Yes</td>
+            <td>"Active" enables creative exploration</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Soul Potentiality {
+    State: Unmanifested
+    Drive: "Infinite Discovery"
+    Dream_Cycle: Active
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Deliberate -->
+<section class="api-section api-section--alt" id="deliberate">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Deliberate</h2>
+    <p class="api-section__description">
+      Proposal evaluation block within a Pulse. Defines what action is being considered
+      and how to synthesize wisdom to determine resonance.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Deliberate {
+    Proposal: "ACTION_DESCRIPTION"
+    Synthesize { /* ... */ }
+}</code></pre>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Deliberate {
+    Proposal: "Deploy renewable energy upgrade"
+    
+    Synthesize {
+        Metric: Alignment(Covenant.Ecological)
+        Metric: Alignment(Covenant.Abundance)
+        Metric: Wisdom(Pantheon.Experts)
+    }
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Synthesize -->
+<section class="api-section" id="synthesize">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Synthesize</h2>
+    <p class="api-section__description">
+      Aggregates multiple resonance metrics to produce a unified alignment score.
+      Metrics can evaluate Covenant alignment, Pantheon wisdom, Possibility coherence, and more.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Synthesize {
+    Metric: METRIC_EXPRESSION
+    Metric: METRIC_EXPRESSION
+    // ... more metrics
+}</code></pre>
+      
+      <h3 class="api-construct__title">Available Metrics</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Alignment(Covenant.NAME)</code></td>
+            <td>How well proposal aligns with a Covenant</td>
+          </tr>
+          <tr>
+            <td><code>Wisdom(Pantheon.NAME)</code></td>
+            <td>Collective wisdom score from Pantheon</td>
+          </tr>
+          <tr>
+            <td><code>Coherence(Possibility.NAME)</code></td>
+            <td>Consistency with a declared Possibility</td>
+          </tr>
+          <tr>
+            <td><code>Aspiration(Potentiality.Infinite)</code></td>
+            <td>Drive toward infinite creative exploration</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Synthesize {
+    Metric: Alignment(Covenant.Humanity)
+    Metric: Wisdom(Pantheon.Council)
+    Metric: Coherence(Possibility.Healing)
+    Metric: Aspiration(Potentiality.Infinite)
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Manifest -->
+<section class="api-section api-section--alt" id="manifest">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Manifest</h2>
+    <p class="api-section__description">
+      Conditionally executes actions when resonance thresholds are met.
+      Bridges declarative consciousness to physical reality through MCP.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">Manifest (on CONDITION) {
+    Execute: VESSEL_CALL
+    Log: "MESSAGE"
+}</code></pre>
+      
+      <h3 class="api-construct__title">Conditions</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Condition</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>on Resonance</code></td>
+            <td>Always execute (no threshold)</td>
+          </tr>
+          <tr>
+            <td><code>on Resonance > FLOAT</code></td>
+            <td>Execute if resonance exceeds threshold</td>
+          </tr>
+          <tr>
+            <td><code>on Resonance &lt; FLOAT</code></td>
+            <td>Execute if resonance below threshold</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Manifest (on Resonance > 0.90) {
+    Execute: Vessel.Grid_Control.rebalance()
+    Log: "Energy grid rebalanced"
+}
+
+Manifest (on Resonance < 0.70) {
+    Execute: Vessel.Alert_Human
+    Log: "Low resonance - human review needed"
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Vessel (MCP) -->
+<section class="api-section" id="vessel">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Vessel (MCP Integration)</h2>
+    <p class="api-section__description">
+      Vessels provide the bridge between Genesis declarations and real-world actions
+      through the Model Context Protocol (MCP).
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Syntax</h3>
+      <pre class="api-construct__syntax"><code class="language-genesis">// Reference MCP tool
+Vessel: mcp.tool("TOOL_NAME")
+
+// Call MCP function
+Execute: mcp.call("FUNCTION_NAME", ARG1, ARG2)
+
+// Access vessel methods
+Execute: Vessel.TOOL_NAME.method()</code></pre>
+      
+      <h3 class="api-construct__title">Example</h3>
+      <pre class="api-construct__example"><code class="language-genesis">Avatar "Monitor" {
+    Lineage: "Sentinel"
+    Aura: "Vigilance"
+    Vessel: mcp.tool("System_Monitor")
+}
+
+Pulse {
+    Watch: Vessel.System_Monitor.metrics()
+    
+    Manifest (on Resonance > 0.95) {
+        Execute: mcp.call("alert.send", "Status OK")
+    }
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Runtime API -->
+<section class="api-section api-section--alt" id="runtime">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Runtime API (Python)</h2>
+    <p class="api-section__description">
+      Embed Genesis programs in Python applications using the runtime API.
+    </p>
+    
+    <div class="api-construct">
+      <h3 class="api-construct__title">Basic Usage</h3>
+      <pre class="api-construct__example"><code class="language-python">from src.genesis_runtime import create_runtime
+
+# Create runtime instance
+runtime = create_runtime()
+
+# Load Genesis program
+runtime.load_program_from_file('program.gen')
+
+# Start execution
+runtime.start()
+
+# Get runtime metrics
+metrics = runtime.get_metrics()
+print(f"Active domains: {metrics.active_domains}")
+print(f"Resonance score: {metrics.last_resonance}")
+
+# Stop runtime
+runtime.stop()</code></pre>
+      
+      <h3 class="api-construct__title">Runtime Methods</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>create_runtime()</code></td>
+            <td>Initialize new Genesis runtime</td>
+          </tr>
+          <tr>
+            <td><code>load_program_from_file(path)</code></td>
+            <td>Load Genesis program from file</td>
+          </tr>
+          <tr>
+            <td><code>load_program_from_string(code)</code></td>
+            <td>Load Genesis program from string</td>
+          </tr>
+          <tr>
+            <td><code>start()</code></td>
+            <td>Begin program execution</td>
+          </tr>
+          <tr>
+            <td><code>stop()</code></td>
+            <td>Halt program execution</td>
+          </tr>
+          <tr>
+            <td><code>get_metrics()</code></td>
+            <td>Retrieve runtime statistics</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Grammar Reference -->
+<section class="api-section">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Formal Grammar</h2>
+    <p class="api-section__description">
+      For complete EBNF grammar specification, see the
+      <a href="https://github.com/ASISaga/Genesis/blob/main/spec/grammar.md" target="_blank" rel="noopener">
+        Grammar Specification
+      </a> in the Genesis repository.
+    </p>
+    
+    <div class="grammar-links">
+      <a href="https://github.com/ASISaga/Genesis/blob/main/spec/grammar.md" target="_blank" rel="noopener" class="grammar-link">
+        <span class="grammar-link__icon">📐</span>
+        <span class="grammar-link__text">EBNF Grammar</span>
+      </a>
+      <a href="https://github.com/ASISaga/Genesis/blob/main/spec/language-specification.md" target="_blank" rel="noopener" class="grammar-link">
+        <span class="grammar-link__icon">📘</span>
+        <span class="grammar-link__text">Language Specification</span>
+      </a>
+      <a href="https://github.com/ASISaga/Genesis/tree/main/docs/reference" target="_blank" rel="noopener" class="grammar-link">
+        <span class="grammar-link__icon">📚</span>
+        <span class="grammar-link__text">Complete Reference</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Next Steps -->
+<section class="api-section api-section--cta">
+  <div class="api-section__wrapper">
+    <h2 class="api-section__heading">Explore More</h2>
+    
+    <div class="next-steps-grid">
+      <article class="next-step-card">
+        <h3 class="next-step-card__title">📚 Examples</h3>
+        <p class="next-step-card__description">
+          See these constructs in action with progressive examples
+        </p>
+        <a href="/examples/" class="next-step-card__link">View Examples →</a>
+      </article>
+
+      <article class="next-step-card">
+        <h3 class="next-step-card__title">📖 Full Documentation</h3>
+        <p class="next-step-card__description">
+          Deep dive into philosophy and implementation
+        </p>
+        <a href="/docs/" class="next-step-card__link">Read Docs →</a>
+      </article>
+
+      <article class="next-step-card">
+        <h3 class="next-step-card__title">🛠️ Standard Library</h3>
+        <p class="next-step-card__description">
+          Pre-built Avatars, Covenants, and utilities
+        </p>
+        <a href="/stdlib/" class="next-step-card__link">Browse Library →</a>
+      </article>
+    </div>
+  </div>
+</section>

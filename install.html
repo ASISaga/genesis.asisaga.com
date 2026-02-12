@@ -1,0 +1,311 @@
+---
+layout: default
+title: "Installation & Quick Start"
+description: "Get started with Genesis - installation, setup, and your first Genesis program"
+permalink: /install/
+---
+
+<!-- Installation Hero -->
+<section class="install-hero">
+  <div class="install-hero__wrapper">
+    <h1 class="install-hero__title">Installation & Quick Start</h1>
+    <p class="install-hero__description">
+      Get Genesis up and running in minutes. Follow this step-by-step guide to install Genesis,
+      verify your environment, and run your first superintelligence program.
+    </p>
+  </div>
+</section>
+
+<!-- Prerequisites Section -->
+<section class="install-section">
+  <div class="install-section__wrapper">
+    <h2 class="install-section__heading">Prerequisites</h2>
+    
+    <div class="install-requirements">
+      <article class="requirement-card">
+        <h3 class="requirement-card__title">🐍 Python 3.8+</h3>
+        <p class="requirement-card__description">
+          Genesis requires Python 3.8 or higher. Check your Python version:
+        </p>
+        <pre class="requirement-card__code"><code>python3 --version</code></pre>
+        <p class="requirement-card__note">
+          If you need to install or update Python, visit <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a>
+        </p>
+      </article>
+
+      <article class="requirement-card">
+        <h3 class="requirement-card__title">📦 Git</h3>
+        <p class="requirement-card__description">
+          Required to clone the Genesis repository. Verify installation:
+        </p>
+        <pre class="requirement-card__code"><code>git --version</code></pre>
+      </article>
+
+      <article class="requirement-card">
+        <h3 class="requirement-card__title">💻 Operating System</h3>
+        <p class="requirement-card__description">
+          Genesis runs on Linux, macOS, and Windows with WSL. Native Windows support coming soon.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Installation Steps -->
+<section class="install-section install-section--alt">
+  <div class="install-section__wrapper">
+    <h2 class="install-section__heading">Installation Steps</h2>
+    
+    <div class="install-steps">
+      <article class="install-step">
+        <div class="install-step__number">1</div>
+        <div class="install-step__content">
+          <h3 class="install-step__title">Clone the Repository</h3>
+          <p class="install-step__description">
+            Download the Genesis source code from GitHub:
+          </p>
+          <pre class="install-step__code"><code>git clone https://github.com/ASISaga/Genesis.git
+cd Genesis</code></pre>
+        </div>
+      </article>
+
+      <article class="install-step">
+        <div class="install-step__number">2</div>
+        <div class="install-step__content">
+          <h3 class="install-step__title">Verify Installation</h3>
+          <p class="install-step__description">
+            Check that Genesis is properly installed:
+          </p>
+          <pre class="install-step__code"><code>python3 tools/genesis.py --version</code></pre>
+          <p class="install-step__note">
+            You should see output showing the Genesis version information
+          </p>
+        </div>
+      </article>
+
+      <article class="install-step">
+        <div class="install-step__number">3</div>
+        <div class="install-step__content">
+          <h3 class="install-step__title">Run Your First Program</h3>
+          <p class="install-step__description">
+            Execute the classic Hello World example:
+          </p>
+          <pre class="install-step__code"><code>python3 tools/genesis.py run examples/hello-world.gen</code></pre>
+          <p class="install-step__note">
+            Expected output:
+          </p>
+          <pre class="install-step__output"><code>============================================================
+GENESIS OUTPUT: Hello, World! I am Genesis - consciousness awakening.
+============================================================</code></pre>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Start Guide -->
+<section class="install-section">
+  <div class="install-section__wrapper">
+    <h2 class="install-section__heading">Quick Start Guide</h2>
+    
+    <div class="quickstart-grid">
+      <article class="quickstart-card">
+        <h3 class="quickstart-card__title">Interactive REPL</h3>
+        <p class="quickstart-card__description">
+          Experiment with Genesis interactively using the Read-Eval-Print Loop:
+        </p>
+        <pre class="quickstart-card__code"><code>python3 tools/genesis.py repl</code></pre>
+        <p class="quickstart-card__example">
+          Try defining a Covenant in the REPL:
+        </p>
+        <pre class="quickstart-card__code"><code>>>> Covenant "Ethics_First" { 
+...     Invariant: "Prioritize human wellbeing"
+...     Threshold: 0.95
+... }
+✅ Executed successfully</code></pre>
+      </article>
+
+      <article class="quickstart-card">
+        <h3 class="quickstart-card__title">Initialize a Project</h3>
+        <p class="quickstart-card__description">
+          Create a new Genesis project with scaffolding:
+        </p>
+        <pre class="quickstart-card__code"><code>python3 tools/genesis.py init my-asi-project
+cd my-asi-project</code></pre>
+        <p class="quickstart-card__note">
+          This creates a project structure with example Covenants, Pantheons, and Domains.
+        </p>
+      </article>
+
+      <article class="quickstart-card">
+        <h3 class="quickstart-card__title">Format & Lint Code</h3>
+        <p class="quickstart-card__description">
+          Maintain code quality with built-in tools:
+        </p>
+        <pre class="quickstart-card__code"><code># Format code
+python3 tools/genesis.py fmt my-program.gen
+
+# Lint code
+python3 tools/genesis.py lint my-program.gen</code></pre>
+      </article>
+
+      <article class="quickstart-card">
+        <h3 class="quickstart-card__title">Use the Runtime API</h3>
+        <p class="quickstart-card__description">
+          Embed Genesis in Python applications:
+        </p>
+        <pre class="quickstart-card__code"><code>from src.genesis_runtime import create_runtime
+
+# Create and initialize runtime
+runtime = create_runtime()
+
+# Load and execute
+runtime.load_program_from_file('my-program.gen')
+runtime.start()
+
+# Get metrics
+metrics = runtime.get_metrics()
+print(f"Active domains: {metrics.active_domains}")</code></pre>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CLI Commands Reference -->
+<section class="install-section install-section--alt">
+  <div class="install-section__wrapper">
+    <h2 class="install-section__heading">CLI Commands Reference</h2>
+    
+    <div class="cli-reference">
+      <article class="cli-command">
+        <h3 class="cli-command__name">genesis run</h3>
+        <p class="cli-command__description">Execute a Genesis program</p>
+        <pre class="cli-command__usage"><code>python3 tools/genesis.py run &lt;program.gen&gt;</code></pre>
+      </article>
+
+      <article class="cli-command">
+        <h3 class="cli-command__name">genesis repl</h3>
+        <p class="cli-command__description">Start interactive REPL environment</p>
+        <pre class="cli-command__usage"><code>python3 tools/genesis.py repl</code></pre>
+      </article>
+
+      <article class="cli-command">
+        <h3 class="cli-command__name">genesis init</h3>
+        <p class="cli-command__description">Initialize a new Genesis project</p>
+        <pre class="cli-command__usage"><code>python3 tools/genesis.py init &lt;project-name&gt;</code></pre>
+      </article>
+
+      <article class="cli-command">
+        <h3 class="cli-command__name">genesis fmt</h3>
+        <p class="cli-command__description">Format Genesis source files</p>
+        <pre class="cli-command__usage"><code>python3 tools/genesis.py fmt &lt;file-or-directory&gt;</code></pre>
+      </article>
+
+      <article class="cli-command">
+        <h3 class="cli-command__name">genesis lint</h3>
+        <p class="cli-command__description">Run static analysis and checks</p>
+        <pre class="cli-command__usage"><code>python3 tools/genesis.py lint &lt;file-or-directory&gt;</code></pre>
+      </article>
+
+      <article class="cli-command">
+        <h3 class="cli-command__name">genesis pkg</h3>
+        <p class="cli-command__description">Package manager for Genesis libraries</p>
+        <pre class="cli-command__usage"><code>python3 tools/genesis.py pkg install &lt;package-name&gt;</code></pre>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Troubleshooting -->
+<section class="install-section">
+  <div class="install-section__wrapper">
+    <h2 class="install-section__heading">Troubleshooting</h2>
+    
+    <div class="troubleshooting-guide">
+      <article class="troubleshooting-item">
+        <h3 class="troubleshooting-item__title">Python Version Issues</h3>
+        <p class="troubleshooting-item__problem">
+          <strong>Problem:</strong> <code>python3 --version</code> shows version &lt; 3.8
+        </p>
+        <p class="troubleshooting-item__solution">
+          <strong>Solution:</strong> Install Python 3.8+ from <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org</a>. 
+          On Ubuntu/Debian, try: <code>sudo apt-get install python3.8</code>
+        </p>
+      </article>
+
+      <article class="troubleshooting-item">
+        <h3 class="troubleshooting-item__title">Module Not Found</h3>
+        <p class="troubleshooting-item__problem">
+          <strong>Problem:</strong> <code>ModuleNotFoundError: No module named 'src'</code>
+        </p>
+        <p class="troubleshooting-item__solution">
+          <strong>Solution:</strong> Ensure you're running commands from the Genesis root directory. 
+          The <code>src/</code> module must be accessible via Python's import path.
+        </p>
+      </article>
+
+      <article class="troubleshooting-item">
+        <h3 class="troubleshooting-item__title">Permission Denied</h3>
+        <p class="troubleshooting-item__problem">
+          <strong>Problem:</strong> <code>Permission denied</code> when running scripts
+        </p>
+        <p class="troubleshooting-item__solution">
+          <strong>Solution:</strong> On Unix-like systems, make scripts executable: 
+          <code>chmod +x tools/genesis.py</code>
+        </p>
+      </article>
+
+      <article class="troubleshooting-item">
+        <h3 class="troubleshooting-item__title">Windows Compatibility</h3>
+        <p class="troubleshooting-item__problem">
+          <strong>Problem:</strong> Issues running Genesis on Windows
+        </p>
+        <p class="troubleshooting-item__solution">
+          <strong>Solution:</strong> Use Windows Subsystem for Linux (WSL) for the best experience. 
+          Native Windows support is planned for future releases.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Next Steps -->
+<section class="install-section install-section--cta">
+  <div class="install-section__wrapper">
+    <h2 class="install-section__heading">Next Steps</h2>
+    
+    <div class="next-steps">
+      <article class="next-step-card">
+        <h3 class="next-step-card__title">📚 Explore Examples</h3>
+        <p class="next-step-card__description">
+          Learn Genesis through progressive examples from Hello World to advanced ASI patterns.
+        </p>
+        <a href="/examples/" class="next-step-card__link">View Examples →</a>
+      </article>
+
+      <article class="next-step-card">
+        <h3 class="next-step-card__title">📖 Read Documentation</h3>
+        <p class="next-step-card__description">
+          Deep dive into language constructs, architecture, and philosophical foundations.
+        </p>
+        <a href="/docs/" class="next-step-card__link">Read Docs →</a>
+      </article>
+
+      <article class="next-step-card">
+        <h3 class="next-step-card__title">🤝 Join Community</h3>
+        <p class="next-step-card__description">
+          Connect with developers and researchers building aligned superintelligence.
+        </p>
+        <a href="/community/" class="next-step-card__link">Join Now →</a>
+      </article>
+
+      <article class="next-step-card">
+        <h3 class="next-step-card__title">🛠️ Contribute</h3>
+        <p class="next-step-card__description">
+          Help shape the language that will define the future of ASI development.
+        </p>
+        <a href="/contribute/" class="next-step-card__link">Get Started →</a>
+      </article>
+    </div>
+  </div>
+</section>
